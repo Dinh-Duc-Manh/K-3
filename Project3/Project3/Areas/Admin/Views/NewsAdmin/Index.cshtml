@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Project3.Models.News>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LongContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LongContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NewsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NewsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
