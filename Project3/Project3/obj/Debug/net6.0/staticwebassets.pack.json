@@ -9437,6 +9437,10 @@
       "PackagePath": "staticwebassets\\StyleUser\\images\\partner-5.png"
     },
     {
+      "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\partner6.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\partner6.jpg"
+    },
+    {
       "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\person_1.jpg",
       "PackagePath": "staticwebassets\\StyleUser\\images\\person_1.jpg"
     },
@@ -9499,6 +9503,22 @@
     {
       "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\product-9.jpg",
       "PackagePath": "staticwebassets\\StyleUser\\images\\product-9.jpg"
+    },
+    {
+      "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\th1.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\th1.jpg"
+    },
+    {
+      "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\th2.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\th2.jpg"
+    },
+    {
+      "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\th3.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\th3.jpg"
+    },
+    {
+      "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\th4.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\th4.jpg"
     },
     {
       "Id": "E:\\SEM3\\Project3\\Project3\\wwwroot\\StyleUser\\js\\.DS_Store",
