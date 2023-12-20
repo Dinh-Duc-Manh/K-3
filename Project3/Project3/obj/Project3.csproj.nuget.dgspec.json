@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SEM3\\Project3\\Project3\\Project3.csproj": {}
+    "D:\\SEM3\\Project3\\Project3\\Project3.csproj": {}
   },
   "projects": {
-    "E:\\SEM3\\Project3\\Project3\\Project3.csproj": {
+    "D:\\SEM3\\Project3\\Project3\\Project3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SEM3\\Project3\\Project3\\Project3.csproj",
+        "projectUniqueName": "D:\\SEM3\\Project3\\Project3\\Project3.csproj",
         "projectName": "Project3",
-        "projectPath": "E:\\SEM3\\Project3\\Project3\\Project3.csproj",
+        "projectPath": "D:\\SEM3\\Project3\\Project3\\Project3.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\SEM3\\Project3\\Project3\\obj\\",
+        "outputPath": "D:\\SEM3\\Project3\\Project3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
