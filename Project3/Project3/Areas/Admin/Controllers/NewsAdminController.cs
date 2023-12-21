@@ -7,37 +7,39 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project3.Data;
 using Project3.Models;
+using X.PagedList;
 
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class NewsAdminController : Controller
     {
-        private readonly Sem3DBContext _context;
+        private readonly Sem3DBContext _contextNew;
 
         public NewsAdminController(Sem3DBContext context)
         {
-            _context = context;
+            _contextNew = context;
         }
 
         // GET: Admin/NewsAdmin
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-              return _context.News != null ? 
-                          View(await _context.News.ToListAsync()) :
-                          Problem("Entity set 'Sem3DBContext.News'  is null.");
+            int pageLimit = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var news = await _contextNew.News.OrderByDescending(n => n.NewsId).ToPagedListAsync(pageNumber, pageLimit);
+            return View(news);
         }
 
         // GET: Admin/NewsAdmin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.News == null)
+            if (id == null || _contextNew.News == null)
             {
                 return NotFound();
             }
 
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.NewsId == id);
+            var news = await _contextNew.News
+                .FirstOrDefaultAsync(n => n.NewsId == id);
             if (news == null)
             {
                 return NotFound();
@@ -59,10 +61,30 @@ namespace Project3.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("NewsId,Title,ShortContent,LongContent,NewsImage,NewsType")] News news)
         {
+            TempData["Message"] = "";
+            var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title));
+            if (ne != null)
+            {
+                ViewBag.error = "The Title already exists";
+                return View();
+            }
             if (ModelState.IsValid)
             {
-                _context.Add(news);
-                await _context.SaveChangesAsync();
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count() > 0 && files[0].Length > 0)
+                {
+                    var file = files[0];
+                    var FileName = file.FileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images", FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                        news.NewsImage = FileName;
+                    }
+                }
+                _contextNew.Add(news);
+                await _contextNew.SaveChangesAsync();
+                TempData["Message"] = "New news added successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(news);
@@ -71,12 +93,12 @@ namespace Project3.Areas.Admin.Controllers
         // GET: Admin/NewsAdmin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.News == null)
+            if (id == null || _contextNew.News == null)
             {
                 return NotFound();
             }
 
-            var news = await _context.News.FindAsync(id);
+            var news = await _contextNew.News.FindAsync(id);
             if (news == null)
             {
                 return NotFound();
@@ -89,8 +111,16 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,ShortContent,LongContent,NewsImage,NewsType")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,ShortContent,LongContent,NewsImage,NewsType")] News news, string Image)
         {
+            TempData["Message"] = "";
+            var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title) && n.NewsId != news.NewsId);
+            if (ne != null)
+            {
+                ViewBag.error = "The Title already exists";
+                return View();
+            }
+
             if (id != news.NewsId)
             {
                 return NotFound();
@@ -100,8 +130,25 @@ namespace Project3.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(news);
-                    await _context.SaveChangesAsync();
+                    var files = HttpContext.Request.Form.Files;
+                    if (files.Count() > 0 && files[0].Length > 0)
+                    {
+                        var file = files[0];
+                        var FileName = file.FileName;
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images", FileName);
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                            news.NewsImage = FileName;
+                        }
+                    }
+                    else
+                    {
+                        news.NewsImage = Image;
+                    }
+                    _contextNew.Update(news);
+                    await _contextNew.SaveChangesAsync();
+                    TempData["Message"] = "News update successful";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -120,45 +167,25 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/NewsAdmin/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null || _context.News == null)
+            TempData["Message"] = "";
+            TempData["MessageError"] = "";
+            var comment = _contextNew.Comments.Where(c => c.CommentId == id).ToList();
+            if (comment.Count() > 0)
             {
-                return NotFound();
+                TempData["MessageError"] = "Deletion failed because there are Comments";
+                return RedirectToAction(nameof(Index));
             }
-
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.NewsId == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            return View(news);
-        }
-
-        // POST: Admin/NewsAdmin/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.News == null)
-            {
-                return Problem("Entity set 'Sem3DBContext.News'  is null.");
-            }
-            var news = await _context.News.FindAsync(id);
-            if (news != null)
-            {
-                _context.News.Remove(news);
-            }
-            
-            await _context.SaveChangesAsync();
+            _contextNew.Remove(_contextNew.News.Find(id));
+            _contextNew.SaveChanges();
+            TempData["Message"] = "News deletion successful";
             return RedirectToAction(nameof(Index));
         }
 
         private bool NewsExists(int id)
         {
-          return (_context.News?.Any(e => e.NewsId == id)).GetValueOrDefault();
+          return (_contextNew.News?.Any(e => e.NewsId == id)).GetValueOrDefault();
         }
     }
 }
