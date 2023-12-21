@@ -16,14 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\C#\BTL_APS.NET\sem3\Project3\Project3
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,10 +50,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/C\#/BTL_APS.NET/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Details.cshtml]
