@@ -9,189 +9,189 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project3
 build_property.RootNamespace = Project3
-build_property.ProjectDir = E:\Eproject\SEM3\Project3\Project3\
+build_property.ProjectDir = E:\sem3\Project3\Project3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\Eproject\SEM3\Project3\Project3
+build_property.MSBuildProjectDirectory = E:\sem3\Project3\Project3
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Create.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Delete.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Details.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Edit.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/AccountsAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudHNBZG1pblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Create.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc0FkbWluXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Details.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc0FkbWluXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Edit.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc0FkbWluXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/CategoriesAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc0FkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/HomeAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/HomeAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Create.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Delete.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Details.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Edit.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/NewsAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c0FkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Create.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJEZXRhaWxzQWRtaW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Delete.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJEZXRhaWxzQWRtaW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Details.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJEZXRhaWxzQWRtaW5cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Edit.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJEZXRhaWxzQWRtaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/OrderDetailsAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJEZXRhaWxzQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Create.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNBZG1pblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Details.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNBZG1pblxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Edit.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNBZG1pblxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Index.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/ProductsAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNBZG1pblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/Shared/Error.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/_ViewImports.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/_ViewStart.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Cart/Index.cshtml]
+[E:/sem3/Project3/Project3/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Home/About.cshtml]
+[E:/sem3/Project3/Project3/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Home/Blog.cshtml]
+[E:/sem3/Project3/Project3/Views/Home/Blog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Home/BlogDetail.cshtml]
+[E:/sem3/Project3/Project3/Views/Home/BlogDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCbG9nRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Home/Contact.cshtml]
+[E:/sem3/Project3/Project3/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Home/Index.cshtml]
+[E:/sem3/Project3/Project3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Login/Index.cshtml]
+[E:/sem3/Project3/Project3/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Product/Details.cshtml]
+[E:/sem3/Project3/Project3/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Product/Index.cshtml]
+[E:/sem3/Project3/Project3/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Product/Medical.cshtml]
+[E:/sem3/Project3/Project3/Views/Product/Medical.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxNZWRpY2FsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Product/Science.cshtml]
+[E:/sem3/Project3/Project3/Views/Product/Science.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTY2llbmNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Shared/Error.cshtml]
+[E:/sem3/Project3/Project3/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/sem3/Project3/Project3/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/_ViewImports.cshtml]
+[E:/sem3/Project3/Project3/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Views/_ViewStart.cshtml]
+[E:/sem3/Project3/Project3/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Eproject/SEM3/Project3/Project3/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+[E:/sem3/Project3/Project3/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-f8zfvk1fya
 
-[E:/Eproject/SEM3/Project3/Project3/Views/Shared/_LayoutUser.cshtml]
+[E:/sem3/Project3/Project3/Views/Shared/_LayoutUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-4g294kz5tr
