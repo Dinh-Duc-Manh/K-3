@@ -1,7 +1,9 @@
-﻿@{
+﻿@model Project3.Models.Login
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
     Layout = null;
 }
-
 
 <!doctype html>
 <html lang="en">
@@ -31,24 +33,26 @@
                                              style="width: 185px;" alt="logo">
                                         <h4 class="mt-1 mb-5 pb-1">We are The Providence Team</h4>
                                     </div>
-                                 
-
-                                    <form>
+                                    <h5>
+                                        <b class="text-danger">@TempData["MessageError"]</b>
+                                        <b class="text-danger">@HttpContextAccessor.HttpContext.Session.GetString("LoginError")</b>
+                                    </h5>
+                                    <form action="" method="post">
                                         <p>Please login to your account</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" class="form-control"
+                                            <input type="email" name="Email" id="form2Example11" class="form-control"
                                                    placeholder="Please enter your email abc@gmail.com" />
                                             <label class="form-label" for="form2Example11">Gmail</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control" placeholder="Enter password" />
+                                            <input type="password" name="Password" id="form2Example22" class="form-control" placeholder="Enter password" />
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
                                                 Log
                                                 in
                                             </button>

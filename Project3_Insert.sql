@@ -140,7 +140,8 @@ go
 select * from News
 go
 INSERT INTO Account VALUES ('Admin','admin@gmail.com', 'admin', '0912345678', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc1.jpg', 'In force', 0);
-INSERT INTO Account VALUES ('User','user@gmail.com', 'user', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'Disable', 1);
+INSERT INTO Account VALUES ('User','user@gmail.com', 'user', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'In force', 1);
+INSERT INTO Account VALUES ('User2','user2@gmail.com', 'user2', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'Disable', 1);
 go
 select * from Account
 go

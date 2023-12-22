@@ -11520,19 +11520,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\window\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin7510\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\BTL_APS.NET\\sem3\\Project3\\Project3\\Project3.csproj",
+      "projectUniqueName": "D:\\sem3\\Project3\\Project3\\Project3.csproj",
       "projectName": "Project3",
-      "projectPath": "E:\\C#\\BTL_APS.NET\\sem3\\Project3\\Project3\\Project3.csproj",
-      "packagesPath": "C:\\Users\\window\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\BTL_APS.NET\\sem3\\Project3\\Project3\\obj\\",
+      "projectPath": "D:\\sem3\\Project3\\Project3\\Project3.csproj",
+      "packagesPath": "C:\\Users\\Admin7510\\.nuget\\packages\\",
+      "outputPath": "D:\\sem3\\Project3\\Project3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\window\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin7510\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11540,7 +11540,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11609,16 +11608,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\C#\\BTL_APS.NET\\sem3\\Project3\\Project3\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

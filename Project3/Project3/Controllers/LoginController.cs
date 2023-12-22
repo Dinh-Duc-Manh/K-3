@@ -4,7 +4,6 @@ using Project3.Models;
 
 namespace Project3.Controllers
 {
-    [Area("Admin")]
     public class LoginController : Controller
     {
         private readonly Sem3DBContext _context;
@@ -27,26 +26,27 @@ namespace Project3.Controllers
             }
             else
             {
-                var checkAccount = _context.Accounts.Where(a => a.AccountType == false && a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
-                var checkAccount1 = _context.Accounts.Where(a => a.AccountType == true).FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
-                var checkAccount2 = _context.Accounts.Where(a => a.AccountType == false).FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+                var checkAccount = _context.Accounts.Where(a => a.AccountType == true && a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+                var checkAccount1 = _context.Accounts.Where(a => a.AccountType == false && a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+                var checkAccount2 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 if (checkAccount != null)
                 {
-                    HttpContext.Session.SetString("LoginAdmin", checkAccount.FullName);
-                    HttpContext.Session.SetString("LoginAdminAvatar", checkAccount.Avatar);
-                    return RedirectToAction("Index", "HomeAdmin");
+                    HttpContext.Session.SetString("Login", checkAccount.FullName);
+                    return RedirectToAction("Index", "Home");
                 }
                 else if (checkAccount1 != null)
                 {
-                    TempData["MessageError"] = "Sai loại tài khoản vui lòng đăng nhập tài khoản Admin";
+                    //HttpContext.Session.SetString("Login", checkAccount.FullName);
+                    //HttpContext.Session.SetString("LoginAvatar", checkAccount.Avatar);
+                    return RedirectToAction("Index", "HomeAdmin");
                 }
                 else if (checkAccount2 != null && checkAccount2.AccountStatus != "In force")
                 {
-                    HttpContext.Session.SetString("LoginAdminError", checkAccount2.AccountStatus);
+                    HttpContext.Session.SetString("LoginError", checkAccount2.AccountStatus);
                 }
                 else
                 {
-                    TempData["MessageError"] = "Tên đăng nhập hoặc mật khẩu không đúng hoặc tài khoản này chưa tồn tại";
+                    TempData["MessageError"] = "Login information is incorrect or does not exist";
                 }
             }
             return View();
@@ -54,8 +54,8 @@ namespace Project3.Controllers
         [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("LoginAdmin");
-            return RedirectToAction("Index");
+            HttpContext.Session.Remove("Login");
+            return RedirectToAction("Index", "Home");
         }
 
     }
