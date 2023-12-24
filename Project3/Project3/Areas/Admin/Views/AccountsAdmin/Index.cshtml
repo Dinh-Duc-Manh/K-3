@@ -93,17 +93,10 @@
                     @Html.DisplayFor(modelItem => item.AccountStatus)
                 </td>
                 <td>
-                    @if (item.AccountType == true)
-                    {
-                        <span>User</span>
-                    }
-                    else
-                    {
-                        <span>Admin</span>
-                    }
+                    @Html.DisplayFor(modelItem => item.AccountType)
                 </td>
                 <td>
-                    @if (item.AccountType == true)
+                    @if (item.AccountType == "user")
                     {
                         <b><a asp-action="Edit" asp-route-id="@item.AccountId">Edit</a> | </b>
                     }

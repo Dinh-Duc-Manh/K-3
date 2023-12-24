@@ -1175,8 +1175,6 @@ D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.AssemblyInfo.cs
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.csproj.CoreCompileInputs.cache
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.MvcApplicationPartsAssemblyInfo.cs
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.MvcApplicationPartsAssemblyInfo.cache
-D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cache
-D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cs
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets\msbuild.Project3.Microsoft.AspNetCore.StaticWebAssets.props
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets\msbuild.build.Project3.props
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Project3.props
@@ -1184,10 +1182,7 @@ D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets\msbuild.buildTransiti
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets.pack.json
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets.build.json
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\staticwebassets.development.json
-D:\SEM3\Project3\Project3\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css
-D:\SEM3\Project3\Project3\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutUser.cshtml.rz.scp.css
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\scopedcss\bundle\Project3.styles.css
-D:\SEM3\Project3\Project3\obj\Debug\net6.0\scopedcss\projectbundle\Project3.bundle.scp.css
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.csproj.CopyComplete
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\Project3.dll
 D:\SEM3\Project3\Project3\obj\Debug\net6.0\refint\Project3.dll
@@ -1792,3 +1787,8 @@ E:\C#\BTL_APS.NET\sem3\Project3\Project3\obj\Debug\net6.0\refint\Project3.dll
 E:\C#\BTL_APS.NET\sem3\Project3\Project3\obj\Debug\net6.0\Project3.pdb
 E:\C#\BTL_APS.NET\sem3\Project3\Project3\obj\Debug\net6.0\Project3.genruntimeconfig.cache
 E:\C#\BTL_APS.NET\sem3\Project3\Project3\obj\Debug\net6.0\ref\Project3.dll
+D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cache
+D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cs
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutUser.cshtml.rz.scp.css
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\projectbundle\Project3.bundle.scp.css

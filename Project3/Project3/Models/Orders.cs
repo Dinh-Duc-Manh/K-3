@@ -35,8 +35,22 @@ namespace Project3.Models
         [Display(Name = "Cart")]
         public int? CartId { get; set; }
 
+        [Column("ProductId")]
+        [Display(Name = "Product")]
+        public int? ProductId { get; set; }
+
+        [Column("AccountId")]
+        [Display(Name = "Account")]
+        public int? AccountId { get; set; }
+
         [Display(Name = "Cart")]
         public Cart? Cart { get; set; }
+
+        [Display(Name = "Product")]
+        public Product? Product { get; set; }
+
+        [Display(Name = "Account")]
+        public Account? Account { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }

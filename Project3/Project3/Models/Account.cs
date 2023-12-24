@@ -51,9 +51,10 @@ namespace Project3.Models
 
         [Column("AccountType")]
         [Display(Name = "Account type")]
-        public bool? AccountType { get; set; }
+        public string? AccountType { get; set; }
 
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
         public ICollection<Cart> Carts { get; set; } = new List<Cart>();
+        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Project3.Data;
 using Project3.Models;
 
@@ -26,23 +27,18 @@ namespace Project3.Controllers
             }
             else
             {
-                var checkAccount = _context.Accounts.Where(a => a.AccountType == true && a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
-                var checkAccount1 = _context.Accounts.Where(a => a.AccountType == false && a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
-                var checkAccount2 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+                var checkAccount = _context.Accounts.Where(a => a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+                var checkAccount1 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 if (checkAccount != null)
                 {
                     HttpContext.Session.SetString("Login", checkAccount.FullName);
+                    HttpContext.Session.SetString("LoginAvatar", checkAccount.Avatar);
+                    HttpContext.Session.SetString("LoginCheck", checkAccount.AccountType);
                     return RedirectToAction("Index", "Home");
                 }
-                else if (checkAccount1 != null)
+                else if (checkAccount1 != null && checkAccount1.AccountStatus != "In force")
                 {
-                    //HttpContext.Session.SetString("Login", checkAccount.FullName);
-                    //HttpContext.Session.SetString("LoginAvatar", checkAccount.Avatar);
-                    return RedirectToAction("Index", "HomeAdmin");
-                }
-                else if (checkAccount2 != null && checkAccount2.AccountStatus != "In force")
-                {
-                    HttpContext.Session.SetString("LoginError", checkAccount2.AccountStatus);
+                    HttpContext.Session.SetString("LoginError", checkAccount1.AccountStatus);
                 }
                 else
                 {

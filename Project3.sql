@@ -36,7 +36,7 @@ create table Account(
 	Address nvarchar(200),
 	Avatar varchar(200),
 	AccountStatus varchar(200),
-	AccountType bit
+	AccountType varchar(200)
 )
 go
 CREATE TABLE Comment
@@ -53,7 +53,7 @@ CREATE TABLE Cart
 	Quantity int,
 	TotalPrice Float,
 	ProductId int foreign key references Product(ProductId),
-	AccountId int foreign key references Account(AccountId),
+	AccountId int foreign key references Account(AccountId)
 )
 go
 CREATE TABLE Orders
@@ -64,7 +64,9 @@ CREATE TABLE Orders
 	ReceiverAddress nvarchar(200),
 	ReceiverPhone nvarchar(20),
 	Note ntext,
-	CartId int foreign key references Cart(CartId)
+	CartId int foreign key references Cart(CartId),
+	ProductId int foreign key references Product(ProductId),
+	AccountId int foreign key references Account(AccountId)
 )
 go
 CREATE TABLE OrderDetail

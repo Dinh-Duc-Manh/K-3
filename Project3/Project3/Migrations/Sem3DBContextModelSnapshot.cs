@@ -35,8 +35,8 @@ namespace Project3.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("AccountStatus");
 
-                    b.Property<bool?>("AccountType")
-                        .HasColumnType("bit")
+                    b.Property<string>("AccountType")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("AccountType");
 
                     b.Property<string>("Address")
@@ -231,6 +231,10 @@ namespace Project3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrdersId"));
 
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("int")
+                        .HasColumnName("AccountId");
+
                     b.Property<int?>("CartId")
                         .HasColumnType("int")
                         .HasColumnName("CartId");
@@ -242,6 +246,10 @@ namespace Project3.Migrations
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("OrderDate");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("ProductId");
 
                     b.Property<string>("ReceiverAddress")
                         .HasColumnType("nvarchar(max)")
@@ -257,7 +265,11 @@ namespace Project3.Migrations
 
                     b.HasKey("OrdersId");
 
+                    b.HasIndex("AccountId");
+
                     b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Orders");
                 });
@@ -346,11 +358,23 @@ namespace Project3.Migrations
 
             modelBuilder.Entity("Project3.Models.Orders", b =>
                 {
+                    b.HasOne("Project3.Models.Account", "Account")
+                        .WithMany("Orders")
+                        .HasForeignKey("AccountId");
+
                     b.HasOne("Project3.Models.Cart", "Cart")
                         .WithMany("Orders")
                         .HasForeignKey("CartId");
 
+                    b.HasOne("Project3.Models.Product", "Product")
+                        .WithMany("Orders")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Account");
+
                     b.Navigation("Cart");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Project3.Models.Product", b =>
@@ -367,6 +391,8 @@ namespace Project3.Migrations
                     b.Navigation("Carts");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Project3.Models.Cart", b =>
@@ -392,6 +418,8 @@ namespace Project3.Migrations
             modelBuilder.Entity("Project3.Models.Product", b =>
                 {
                     b.Navigation("Carts");
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
