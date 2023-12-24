@@ -12,11 +12,13 @@ namespace Project3.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Index(Login model)
         {
@@ -47,6 +49,7 @@ namespace Project3.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public IActionResult Logout()
         {
