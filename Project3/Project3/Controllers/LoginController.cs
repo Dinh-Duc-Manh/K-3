@@ -34,7 +34,11 @@ namespace Project3.Controllers
                 if (checkAccount != null)
                 {
                     HttpContext.Session.SetString("Login", checkAccount.FullName);
+                    HttpContext.Session.SetString("LoginPhone", checkAccount.Phone);
+                    HttpContext.Session.SetString("LoginEmail", checkAccount.Email);
+                    HttpContext.Session.SetString("LoginAddress", checkAccount.Address);
                     HttpContext.Session.SetString("LoginAvatar", checkAccount.Avatar);
+                    
                     HttpContext.Session.SetString("LoginCheck", checkAccount.AccountType);
                     return RedirectToAction("Index", "Home");
                 }
@@ -55,6 +59,11 @@ namespace Project3.Controllers
         {
             HttpContext.Session.Remove("Login");
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Account()
+        {
+            return View();
         }
 
     }

@@ -90,7 +90,7 @@
                     else
                     {
                         <li class="nav-item">
-                            <a href="#" class="d-block">@HttpContextAccessor.HttpContext.Session.GetString("Login")</a>
+                            <a asp-controller="Login" asp-action="Account" class="nav-link">@HttpContextAccessor.HttpContext.Session.GetString("Login")</a>
                         </li>
                     }
                 </ul>
