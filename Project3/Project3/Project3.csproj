@@ -24,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\StyleAdmin\.github\codeql\codeql-config.yml" />
     <None Include="wwwroot\StyleAdmin\.github\CONTRIBUTING.md" />
     <None Include="wwwroot\StyleAdmin\.github\dependabot.yml" />

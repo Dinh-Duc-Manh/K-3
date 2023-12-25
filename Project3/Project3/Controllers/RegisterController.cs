@@ -51,7 +51,7 @@ namespace Project3.Controllers
                 }
                 _context.Add(account);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Login");
             }
             return View(account);
         }

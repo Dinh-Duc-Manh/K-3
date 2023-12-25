@@ -44,12 +44,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Email" class="control-label"></label>
-                                            <input asp-for="Email" class="form-control" />
+                                            <input asp-for="Email" type="email" class="form-control" />
                                             <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Password" class="control-label"></label>
-                                            <input asp-for="Password" class="form-control" />
+                                            <label asp-for="Password" class="control-label form-label" for="form2Example22"></label>
+                                            <input asp-for="Password" type="password" class="form-control" id="form2Example22" />
                                             <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
@@ -66,13 +66,7 @@
                                             <label asp-for="Avatar" class="control-label"></label>
                                             <input asp-for="Avatar" type="file" class="form-control" />
                                         </div>
-                                        <div class="form-group">
-                                            <label asp-for="AccountStatus" class="control-label"></label>
-                                            <select asp-for="AccountStatus" class="form-control">
-                                                <option value="In force">In force</option>
-                                                <option value="Disable">Disable</option>
-                                            </select>
-                                        </div>
+                                        <input asp-for="AccountType" type="hidden" value="In force" class="form-control" />
                                         <input asp-for="AccountType" type="hidden" value="user" class="form-control" />
 
                                         <div class="text-center pt-1 mb-5 pb-1">
