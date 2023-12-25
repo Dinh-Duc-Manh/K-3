@@ -29,10 +29,10 @@ namespace Project3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index([Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account)
         {
-            var accounts = _context.Accounts.FirstOrDefault(a => a.FullName.Equals(account.FullName));
+            var accounts = _context.Accounts.FirstOrDefault(a => a.Email.Equals(account.Email));
             if (accounts != null)
             {
-                ViewBag.error = "Account name already exists";
+                ViewBag.error = "Account Email already exists";
                 return View();
             }
             if (ModelState.IsValid)

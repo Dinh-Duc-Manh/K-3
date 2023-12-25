@@ -596,3 +596,4 @@ D:\sem3\Project3\Project3\obj\Debug\net6.0\refint\Project3.dll
 D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.pdb
 D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.genruntimeconfig.cache
 D:\sem3\Project3\Project3\obj\Debug\net6.0\ref\Project3.dll
+D:\sem3\Project3\Project3\bin\Debug\net6.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
