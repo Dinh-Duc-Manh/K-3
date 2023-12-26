@@ -11,7 +11,7 @@ using Project3.ViewModels;
 
 namespace Project3.Controllers
 {
-    public class CartController : Controller
+    public class CartController : BaseController
     {
         private readonly Sem3DBContext _context;
 

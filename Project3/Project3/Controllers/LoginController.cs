@@ -123,7 +123,7 @@ namespace Project3.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account, string Image)
+        public async Task<IActionResult> Account(int id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account, string Image)
         {
             TempData["Message"] = "";
             if (id != account.AccountId)

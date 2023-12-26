@@ -5,7 +5,7 @@ namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin")]
-    public class HomeAdminController : BaseController
+    public class HomeAdminController : Base1Controller
     {
         public IActionResult Index()
         {

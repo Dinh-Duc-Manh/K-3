@@ -2,38 +2,45 @@
 
 <div class="container">
     <h1 style="text-align:center">Account information</h1>
-    <form asp-action="Edit">
+    <h5>
+        <b class="text-success">@TempData["Message"]</b>
+    </h5>
+    <form asp-action="Account" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="AccountId" />
         <input type="hidden" asp-for="Password" />
+        <input type="hidden" asp-for="AccountStatus" />
         <input type="hidden" asp-for="AccountType" />
 
         <div class="row my-5">
-            <div class="col-md-5">
+            <div class="col-4">
                 <input name="Image" class="form-control mb-2" type="hidden" value="@Model.Avatar" />
-                <img src="~/Images/@Model.Avatar" class="img-circle elevation-2" alt="#">
+                <img src="~/Images/@Model.Avatar" width="100%" alt="#">
                 <input asp-for="Avatar" type="file" class="form-control mb-2" />
             </div>
-            <div class="col-md-5">
-                <div class="row my-1">
-                    <b class="col-md-4">Email :</b>
-                    <input asp-for="Email" class="form-control col-md-8" />
+            <div class="col-8">
+                <div class="row my-5">
+                    <b class="col-md-2 mt-3">Email :</b>
+                    <input asp-for="Email" class="form-control col-md-10" readonly />
                 </div>
-                <div class="row my-1">
-                    <b class="col-md-4">Full Name :</b>
-                    <input asp-for="FullName" class="form-control col-md-8" />
+                <div class="row my-5">
+                    <b class="col-md-2 mt-3">Full Name :</b>
+                    <input asp-for="FullName" class="form-control col-md-10" />
                 </div>
-                <div class="row my-1">
-                    <b class="col-md-4">Phone :</b>
-                    <input asp-for="Phone" class="form-control col-md-8" />
+                <div class="row my-5">
+                    <b class="col-md-2 mt-3">Phone :</b>
+                    <input asp-for="Phone" class="form-control col-md-10" />
                 </div>
-                <div class="row my-1">
-                    <b class="col-md-2">Address :</b>
+                <div class="row my-5">
+                    <b class="col-md-2 mt-3">Address :</b>
                     <input asp-for="Address" class="form-control col-md-10" />
                 </div>
 
                 <div class="form-group" style="text-align:center">
-                    <input type="submit" value="Save" class="btn btn-primary p-2 my-5" />
+                    @if(Model.AccountType == "user"){
+                        <input type="submit" value="Save" class="btn btn-success p-2 my-5" />
+                    }
+                    <a class="btn btn-danger p-2 my-5" asp-action="Logout">Logout</a>
                 </div>
             </div>
         </div>
