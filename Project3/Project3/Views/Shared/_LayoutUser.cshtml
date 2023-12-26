@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,15 +83,19 @@
                     </li>
                     <li class="nav-item"><a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
 
+
                     <li class="nav-item"><a asp-controller="Cart" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span></a></li>
-                    @if (@HttpContextAccessor.HttpContext.Session.GetString("Login") == null)
+                   
+
+                    @if (@HttpContextAccessor.HttpContext.Session.GetString("LoginName") == null)
+
                     {
                         <li class="nav-item"><a asp-controller="Login" asp-action="Index" class="nav-link"><i class="fa-solid fa-user"></i></a></li>
                     }
                     else
                     {
                         <li class="nav-item">
-                            <a asp-controller="Login" asp-action="Account" class="nav-link">@HttpContextAccessor.HttpContext.Session.GetString("Login")</a>
+                            <b><a asp-controller="Login" asp-action="Account" asp-route-id="@HttpContextAccessor.HttpContext.Session.GetInt32("LoginId")" class="nav-link">@HttpContextAccessor.HttpContext.Session.GetString("LoginName")</a></b>
                         </li>
                     }
                 </ul>

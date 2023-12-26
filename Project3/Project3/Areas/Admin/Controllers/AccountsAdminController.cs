@@ -109,10 +109,9 @@ namespace Project3.Areas.Admin.Controllers
 
         // GET: Admin/AccountsAdmin/Delete/5
         
-
         private bool AccountExists(int id)
         {
-          return (_contextAcc.Accounts?.Any(e => e.AccountId == id)).GetValueOrDefault();
+          return (_contextAcc.Accounts?.Any(a => a.AccountId == id)).GetValueOrDefault();
         }
     }
 }

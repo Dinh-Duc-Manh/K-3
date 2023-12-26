@@ -188,7 +188,7 @@ namespace Project3.Areas.Admin.Controllers
 
         private bool ProductExists(int id)
         {
-          return (_contextPro.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+          return (_contextPro.Products?.Any(p => p.ProductId == id)).GetValueOrDefault();
         }
     }
 }
