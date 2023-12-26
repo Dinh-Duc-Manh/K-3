@@ -139,9 +139,9 @@ Circular No. 14/2020/TT-BYT dated July 10, 2020 of the Minister of Health regula
 go
 select * from News
 go
-INSERT INTO Account VALUES ('Admin','admin@gmail.com', 'admin', '0912345678', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc1.jpg', 'In force', 'admin');
-INSERT INTO Account VALUES ('User','user@gmail.com', 'user', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'In force', 'user');
-INSERT INTO Account VALUES ('User2','user2@gmail.com', 'user2', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'Disable', 'user');
+INSERT INTO Account VALUES ('Admin','admin@gmail.com', '123456', '0912345678', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc1.jpg', 'In force', 'admin');
+INSERT INTO Account VALUES ('User','user@gmail.com', '123456', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'In force', 'user');
+INSERT INTO Account VALUES ('User2','user2@gmail.com', '123456', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'acc2.jpg', 'Disable', 'user');
 go
 select * from Account
 go

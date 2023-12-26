@@ -29,13 +29,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" readonly />
+                <input asp-for="Email" type="email" class="form-control" readonly />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Password" />
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" readonly />
+                <input asp-for="Phone" type="number" class="form-control" readonly />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">

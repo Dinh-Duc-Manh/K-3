@@ -3,33 +3,24 @@
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
-
-
-
 <div class="container">
-
     <h1 style="text-align:center">Account information</h1>
-
     <div class="row">
         <div class="col-md 5" style="">
             <img src="~/Images/@HttpContextAccessor.HttpContext.Session.GetString("LoginAvatar")" class="img-circle elevation-2" alt="#">
         </div>
 
         <div class="col-md 5" style="">
-
-
             <div>
                 <div class="row">
                     <h3 col-md-4>Full Name : </h3>
-                    <h3 col-md-8>@HttpContextAccessor.HttpContext.Session.GetString("Login")</h3>
+                    <h3 col-md-8>@HttpContextAccessor.HttpContext.Session.GetString("LoginName")</h3>
                 </div>
 
                 <div class="row">
                     <h3 col-md-4>Email : </h3>
                     <h3 col-md-8>@HttpContextAccessor.HttpContext.Session.GetString("LoginEmail")</h3>
                 </div>
-
-
 
                 <div class="row">
                     <h3 col-md-4>Phone : </h3>
@@ -42,16 +33,10 @@
                 </div>
 
                 <div style="text-align:center">
-                    <a class="btn-danger" asp-action="Logout" asp-controller="Login">Logout</a>
+                    <a class="btn-danger p-2 my-5" asp-action="Logout" asp-controller="Login">Logout</a>
                 </div>
-              
             </div>
 
         </div>
     </div>
-
-
-
 </div>
-
-

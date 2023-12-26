@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Project3.Data;
 using Project3.Models;
 
@@ -33,7 +32,7 @@ namespace Project3.Controllers
                 var checkAccount1 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 if (checkAccount != null)
                 {
-                    HttpContext.Session.SetString("Login", checkAccount.FullName);
+                    HttpContext.Session.SetString("LoginName", checkAccount.FullName);
                     HttpContext.Session.SetString("LoginPhone", checkAccount.Phone);
                     HttpContext.Session.SetString("LoginEmail", checkAccount.Email);
                     HttpContext.Session.SetString("LoginAddress", checkAccount.Address);
@@ -52,6 +51,43 @@ namespace Project3.Controllers
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account)
+        {
+            var accounts = _context.Accounts.FirstOrDefault(a => a.Email.Equals(account.Email));
+            if (accounts != null)
+            {
+                ViewBag.error = "Account Email already exists";
+                return View();
+            }
+            if (ModelState.IsValid)
+            {
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count() > 0 && files[0].Length > 0)
+                {
+                    var file = files[0];
+                    var FileName = file.FileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images", FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                        account.Avatar = FileName;
+                    }
+                }
+                _context.Add(account);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Login");
+            }
+            return View(account);
         }
 
         [HttpGet]
