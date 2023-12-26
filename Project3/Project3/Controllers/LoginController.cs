@@ -33,6 +33,7 @@ namespace Project3.Controllers
                 var checkAccount1 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 if (checkAccount != null)
                 {
+                    HttpContext.Session.SetInt32("LoginId", checkAccount.AccountId);
                     HttpContext.Session.SetString("Login", checkAccount.FullName);
                     HttpContext.Session.SetString("LoginPhone", checkAccount.Phone);
                     HttpContext.Session.SetString("LoginEmail", checkAccount.Email);

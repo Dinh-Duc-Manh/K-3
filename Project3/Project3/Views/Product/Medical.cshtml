@@ -53,7 +53,7 @@
 
                                     @if (item.ProductStatus == "In stock")
                                     {
-                                        <a href="#" class="buy-now d-flex justify-content-center align-items-center ml-2">
+                                        <a asp-action="Details" asp-route-id="@item.ProductId" class="buy-now d-flex justify-content-center align-items-center ml-2">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>
                                     }

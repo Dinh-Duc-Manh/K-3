@@ -82,7 +82,7 @@
                     </li>
                     <li class="nav-item"><a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
 
-                    <li class="nav-item"><a asp-controller="Cart" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                    <li class="nav-item"><a asp-controller="Cart" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span></a></li>
                     @if (@HttpContextAccessor.HttpContext.Session.GetString("Login") == null)
                     {
                         <li class="nav-item"><a asp-controller="Login" asp-action="Index" class="nav-link"><i class="fa-solid fa-user"></i></a></li>
@@ -191,5 +191,41 @@
     <script src="~/StyleUser/js/google-map.js"></script>
     <script src="~/StyleUser/js/main.js"></script>
 
+    <script>
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 0) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
 </body>
 </html>

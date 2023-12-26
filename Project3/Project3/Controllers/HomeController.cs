@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Project3.Data;
 using Project3.Models;
 using System.Diagnostics;
 
@@ -7,6 +9,7 @@ namespace Project3.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly Sem3DBContext _context;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -15,6 +18,7 @@ namespace Project3.Controllers
 
         public IActionResult Index()
         {
+           
             return View();
         }
         public IActionResult About()

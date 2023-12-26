@@ -17,6 +17,7 @@ namespace Project3.Models
 
         [Column("TotalPrice")]
         [Display(Name = "Total Price")]
+        [DisplayFormat(DataFormatString = "{0:#,0 $}")]
         public double? TotalPrice { get; set; }
 
         [Column("ProductId")]

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project3.Data;
 using Project3.Models;
+using Project3.ViewModels;
 using X.PagedList;
 
 namespace Project3.Controllers
@@ -60,12 +61,18 @@ namespace Project3.Controllers
             }
 
             var product = await _context.Products.Include(p => p.Category).FirstOrDefaultAsync(m => m.ProductId == id);
+            //var cart = await _context.Carts.
+            var Cart_Pro = new Cart_Pro
+            {
+                MPro = product,
+                //MCart = cart
+            };
             if (product == null)
             {
                 return NotFound();
             }
-
-            return View(product);
+            ViewData["pro_id"] = id;
+            return View(Cart_Pro);
         }
 
 
