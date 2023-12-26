@@ -66,6 +66,6 @@
 <div>
     @if (@Model.AccountType == "user")
     {
-        <b><a asp-action="Edit" asp-route-id="@Model?.AccountId">Edit</a> | </b>
+        <a asp-action="Edit" asp-route-id="@Model?.AccountId">Edit</a>
     }
 </div>

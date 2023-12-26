@@ -14,7 +14,7 @@ namespace Project3.Controllers
                     new RouteValueDictionary(new { Area = "", Controller = "Login", Action = "Index" })
                 );
             }
-            if (context.HttpContext.Session.GetString("LoginCheck") == "user")
+            if (context.HttpContext.Session.GetString("LoginType") == "user")
             {
                 context.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(new { Area = "", Controller = "Home", Action = "Index" })
