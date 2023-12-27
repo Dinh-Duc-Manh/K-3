@@ -15,13 +15,13 @@ namespace Project3.Models
         [Display(Name = "Receiver name")]
         public string? ReceiverName { get; set; }
 
-        [Column("ReceiverAddress")]
-        [Display(Name = "Receiver address")]
-        public string? ReceiverAddress { get; set; }
-
         [Column("ReceiverPhone")]
         [Display(Name = "Receiver phone")]
         public string? ReceiverPhone { get; set; }
+
+        [Column("ReceiverAddress")]
+        [Display(Name = "Receiver address")]
+        public string? ReceiverAddress { get; set; }
 
         [Column("Note")]
         [Display(Name = "Note")]

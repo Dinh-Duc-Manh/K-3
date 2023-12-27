@@ -7,9 +7,6 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -23,20 +20,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDetailStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Orders.OrdersId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderDetailId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderDetailId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderDetailId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDetailStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Orders.ReceiverName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderDetailId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderDetailId">Details</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

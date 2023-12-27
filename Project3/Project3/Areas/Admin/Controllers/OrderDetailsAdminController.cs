@@ -11,29 +11,29 @@ namespace Project3.Areas.Admin.Controllers
     [Area("Admin")]
     public class OrderDetailsAdminController : Base1Controller
     {
-        private readonly Sem3DBContext _context;
+        private readonly Sem3DBContext _contextOD;
 
         public OrderDetailsAdminController(Sem3DBContext context)
         {
-            _context = context;
+            _contextOD = context;
         }
 
         // GET: Admin/OrderDetailsAdmin
         public async Task<IActionResult> Index()
         {
-            var sem3DBContext = _context.OrderDetails.Include(o => o.Orders);
+            var sem3DBContext = _contextOD.OrderDetails.Include(o => o.Orders);
             return View(await sem3DBContext.ToListAsync());
         }
 
         // GET: Admin/OrderDetailsAdmin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.OrderDetails == null)
+            if (id == null || _contextOD.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails
+            var orderDetail = await _contextOD.OrderDetails
                 .Include(o => o.Orders)
                 .FirstOrDefaultAsync(o => o.OrderDetailId == id);
             if (orderDetail == null)
@@ -45,43 +45,21 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/OrderDetailsAdmin/Create
-        public IActionResult Create()
-        {
-            ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "OrdersId");
-            return View();
-        }
-
-        // POST: Admin/OrderDetailsAdmin/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(orderDetail);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
-            return View(orderDetail);
-        }
 
         // GET: Admin/OrderDetailsAdmin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.OrderDetails == null)
+            if (id == null || _contextOD.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
+            var orderDetail = await _contextOD.OrderDetails.FindAsync(id);
             if (orderDetail == null)
             {
                 return NotFound();
             }
-            ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
+            ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
             return View(orderDetail);
         }
 
@@ -101,8 +79,8 @@ namespace Project3.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(orderDetail);
-                    await _context.SaveChangesAsync();
+                    _contextOD.Update(orderDetail);
+                    await _contextOD.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,51 +95,15 @@ namespace Project3.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
+            ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
             return View(orderDetail);
         }
 
         // GET: Admin/OrderDetailsAdmin/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.OrderDetails == null)
-            {
-                return NotFound();
-            }
-
-            var orderDetail = await _context.OrderDetails
-                .Include(o => o.Orders)
-                .FirstOrDefaultAsync(m => m.OrderDetailId == id);
-            if (orderDetail == null)
-            {
-                return NotFound();
-            }
-
-            return View(orderDetail);
-        }
-
-        // POST: Admin/OrderDetailsAdmin/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.OrderDetails == null)
-            {
-                return Problem("Entity set 'Sem3DBContext.OrderDetails'  is null.");
-            }
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
-            if (orderDetail != null)
-            {
-                _context.OrderDetails.Remove(orderDetail);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool OrderDetailExists(int? id)
         {
-          return (_context.OrderDetails?.Any(e => e.OrderDetailId == id)).GetValueOrDefault();
+          return (_contextOD.OrderDetails?.Any(o => o.OrderDetailId == id)).GetValueOrDefault();
         }
     }
 }

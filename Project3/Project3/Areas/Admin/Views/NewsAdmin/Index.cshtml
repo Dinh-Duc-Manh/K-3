@@ -64,14 +64,14 @@
                     @Html.DisplayFor(modelItem => item.NewsDate)
                 </td>
                 <td>
-                    <img src="~/Images/@item.NewsImage" width="50" />
+                    <img src="~/Images/@item.NewsImage" width="100%" height="50" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NewsType)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.NewsId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.NewsId">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.NewsId">Delete</a>
                 </td>
             </tr>

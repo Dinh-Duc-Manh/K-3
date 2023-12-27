@@ -61,11 +61,11 @@ CREATE TABLE Orders
 (
     OrdersId int PRIMARY KEY IDENTITY,
 	ReceiverName nvarchar(100),
-	ReceiverAddress nvarchar(200),
 	ReceiverPhone nvarchar(20),
+	ReceiverAddress nvarchar(200),
 	Note ntext,
 	OrderDate datetime DEFAULT GETDATE(),
-	CartId int foreign key references Cart(CartId),
+	--CartId int foreign key references Cart(CartId),
 	ProductId int foreign key references Product(ProductId),
 	AccountId int foreign key references Account(AccountId)
 )

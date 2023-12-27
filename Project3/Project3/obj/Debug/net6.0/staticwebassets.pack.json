@@ -617,6 +617,338 @@
       "PackagePath": "staticwebassets\\StyleAdmin\\build\\scss\\plugins\\_toastr.scss"
     },
     {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\LICENSE.md",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\README.md",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\README.md"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.d.ts",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.d.ts"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.js.map",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\ckeditor.js.map"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\af.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\af.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ar.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ar.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ast.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ast.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\az.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\az.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bg.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bg.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bn.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bn.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bs.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\bs.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ca.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ca.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\cs.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\cs.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\da.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\da.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\de-ch.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\de-ch.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\de.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\de.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\el.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\el.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en-au.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en-au.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en-gb.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en-gb.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\en.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\eo.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\eo.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\es-co.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\es-co.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\es.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\es.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\et.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\et.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\eu.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\eu.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fa.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fa.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fi.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fi.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fr.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\fr.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\gl.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\gl.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\gu.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\gu.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\he.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\he.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hi.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hi.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hr.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hr.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hu.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hu.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hy.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\hy.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\id.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\id.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\it.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\it.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ja.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ja.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\jv.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\jv.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\km.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\km.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\kn.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\kn.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ko.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ko.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ku.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ku.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\lt.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\lt.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\lv.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\lv.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ms.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ms.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\nb.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\nb.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ne.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ne.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\nl.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\nl.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\no.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\no.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\oc.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\oc.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pl.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pl.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pt-br.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pt-br.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pt.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\pt.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ro.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ro.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ru.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ru.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\si.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\si.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sk.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sk.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sl.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sl.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sq.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sq.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sr-latn.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sr.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sr.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sv.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\sv.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\th.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\th.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tk.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tk.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tr.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tr.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tt.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\tt.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ug.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ug.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\uk.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\uk.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ur.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\ur.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\uz.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\uz.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\zh-cn.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\zh.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\build\\translations\\zh.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\package.json",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\package.json"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\configuration-dialog\\configuration-dialog.css",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\configuration-dialog\\configuration-dialog.css"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\configuration-dialog\\configuration-dialog.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\configuration-dialog\\configuration-dialog.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\index.html",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\index.html"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\script.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\script.js"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\styles.css",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\sample\\styles.css"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\src\\ckeditor.ts",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\src\\ckeditor.ts"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\tsconfig.json",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\tsconfig.json"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\webpack.config.js",
+      "PackagePath": "staticwebassets\\StyleAdmin\\ckeditor5-40.2.0-p5cboa81rymg\\webpack.config.js"
+    },
+    {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleAdmin\\composer.json",
       "PackagePath": "staticwebassets\\StyleAdmin\\composer.json"
     },
