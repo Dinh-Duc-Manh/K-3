@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="LongContent" class="control-label"></label>
-                <input asp-for="LongContent" class="form-control" />
+                <textarea asp-for="LongContent" id="txtLongContent" class="form-control"></textarea>
                 <span asp-validation-for="LongContent" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="NewsDate" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
@@ -60,4 +60,20 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script src="~/styleadmin/ckeditor5-40.2.0-p5cboa81rymg/build/ckeditor.js"></script>
+    <a href="~/styleadmin/ckeditor5-40.2.0-p5cboa81rymg/build/ckeditor.js.map">~/styleadmin/ckeditor5-40.2.0-p5cboa81rymg/build/ckeditor.js.map</a>
+    <script>
+
+        ClassicEditor
+            .create(document.querySelector('#txtLongContent'), {
+
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(err => {
+                console.error(err.stack);
+            });
+
+    </script>
 }
