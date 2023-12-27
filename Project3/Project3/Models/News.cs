@@ -27,6 +27,10 @@ namespace Project3.Models
         [Required(ErrorMessage = "Long content cannot be empty")]
         public string? LongContent { get; set; }
 
+        [Column("NewsDate")]
+        [Display(Name = "News date")]
+        public DateTime? NewsDate { get; set; }
+
         [Column("NewsImage")]
         [Display(Name = "News image")]
         public string? NewsImage { get; set; }

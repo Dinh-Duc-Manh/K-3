@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 using X.PagedList;
@@ -12,7 +9,7 @@ using X.PagedList;
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class NewsAdminController : Controller
+    public class NewsAdminController : Base1Controller
     {
         private readonly Sem3DBContext _contextNew;
 
@@ -59,7 +56,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewsId,Title,ShortContent,LongContent,NewsImage,NewsType")] News news)
+        public async Task<IActionResult> Create([Bind("NewsId,Title,ShortContent,LongContent,NewsDate,NewsImage,NewsType")] News news)
         {
             TempData["Message"] = "";
             var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title));
@@ -111,7 +108,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,ShortContent,LongContent,NewsImage,NewsType")] News news, string Image)
+        public async Task<IActionResult> Edit(int? id, [Bind("NewsId,Title,ShortContent,LongContent,NewsDate,NewsImage,NewsType")] News news, string? Image)
         {
             TempData["Message"] = "";
             var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title) && n.NewsId != news.NewsId);
@@ -167,7 +164,7 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/NewsAdmin/Delete/5
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             TempData["Message"] = "";
             TempData["MessageError"] = "";
@@ -183,9 +180,9 @@ namespace Project3.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NewsExists(int id)
+        private bool NewsExists(int? id)
         {
-          return (_contextNew.News?.Any(e => e.NewsId == id)).GetValueOrDefault();
+          return (_contextNew.News?.Any(n => n.NewsId == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class OrderDetailsAdminController : Controller
+    public class OrderDetailsAdminController : Base1Controller
     {
         private readonly Sem3DBContext _context;
 
@@ -37,7 +35,7 @@ namespace Project3.Areas.Admin.Controllers
 
             var orderDetail = await _context.OrderDetails
                 .Include(o => o.Orders)
-                .FirstOrDefaultAsync(m => m.OrderDetailId == id);
+                .FirstOrDefaultAsync(o => o.OrderDetailId == id);
             if (orderDetail == null)
             {
                 return NotFound();
@@ -92,7 +90,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int? id, [Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
         {
             if (id != orderDetail.OrderDetailId)
             {
@@ -145,7 +143,7 @@ namespace Project3.Areas.Admin.Controllers
         // POST: Admin/OrderDetailsAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             if (_context.OrderDetails == null)
             {
@@ -161,7 +159,7 @@ namespace Project3.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrderDetailExists(int id)
+        private bool OrderDetailExists(int? id)
         {
           return (_context.OrderDetails?.Any(e => e.OrderDetailId == id)).GetValueOrDefault();
         }

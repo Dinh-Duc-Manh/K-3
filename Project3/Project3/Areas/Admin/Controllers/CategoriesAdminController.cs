@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 using X.PagedList;
@@ -12,7 +9,7 @@ using X.PagedList;
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoriesAdminController : Controller
+    public class CategoriesAdminController : Base1Controller
     {
         private readonly Sem3DBContext _contextCat;
 
@@ -22,7 +19,7 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategoriesAdmin
-        public async Task<IActionResult> Index(string name, int? page)
+        public async Task<IActionResult> Index(string? name, int? page)
         {
             int pageLimit = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
@@ -104,7 +101,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,CategoryType")] Category category)
+        public async Task<IActionResult> Edit(int? id, [Bind("CategoryId,CategoryName,CategoryType")] Category category)
         {
             TempData["Message"] = "";
             var categories = _contextCat.Categories.FirstOrDefault(c => c.CategoryName.Equals(category.CategoryName) && c.CategoryId != category.CategoryId);
@@ -144,11 +141,11 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategoriesAdmin/Delete/?
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             TempData["Message"] = "";
             TempData["MessageError"] = "";
-            var product = _contextCat.Products.Where(c => c.CategoryId == id).ToList();
+            var product = _contextCat.Products.Where(p => p.CategoryId == id).ToList();
             if (product.Count() > 0)
             {
                 TempData["MessageError"] = "Deletion failed because there are products";
@@ -160,9 +157,9 @@ namespace Project3.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(int id)
+        private bool CategoryExists(int? id)
         {
-          return (_contextCat.Categories?.Any(e => e.CategoryId == id)).GetValueOrDefault();
+          return (_contextCat.Categories?.Any(c => c.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

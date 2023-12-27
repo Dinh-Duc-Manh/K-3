@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 using X.PagedList;
@@ -12,7 +10,7 @@ using X.PagedList;
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductsAdminController : Controller
+    public class ProductsAdminController : Base1Controller
     {
         private readonly Sem3DBContext _contextPro;
 
@@ -22,7 +20,7 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductsAdmin
-        public async Task<IActionResult> Index(string name, int? page)
+        public async Task<IActionResult> Index(string? name, int? page)
         {
             int pageLimit = 4;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
@@ -120,7 +118,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Price,Description,ProductImage,ProductStatus,CategoryId")] Product product, string Image)
+        public async Task<IActionResult> Edit(int? id, [Bind("ProductId,ProductName,Price,Description,ProductImage,ProductStatus,CategoryId")] Product product, string? Image)
         {
             TempData["Message"] = "";
             var products = _contextPro.Products.FirstOrDefault(p => p.ProductName.Equals(product.ProductName) && p.ProductId != product.ProductId);
@@ -177,7 +175,7 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductsAdmin/Delete/5
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             TempData["Message"] = "";
             _contextPro.Remove(_contextPro.Products.Find(id));
@@ -186,7 +184,7 @@ namespace Project3.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool ProductExists(int? id)
         {
           return (_contextPro.Products?.Any(p => p.ProductId == id)).GetValueOrDefault();
         }

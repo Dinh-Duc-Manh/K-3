@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 using X.PagedList;
@@ -12,7 +9,7 @@ using X.PagedList;
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AccountsAdminController : Controller
+    public class AccountsAdminController : Base1Controller
     {
         private readonly Sem3DBContext _contextAcc;
 
@@ -22,7 +19,7 @@ namespace Project3.Areas.Admin.Controllers
         }
 
         // GET: Admin/AccountsAdmin
-        public async Task<IActionResult> Index(string name, int? page)
+        public async Task<IActionResult> Index(string? name, int? page)
         {
             int pageLimit = 2;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
@@ -77,7 +74,7 @@ namespace Project3.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account)
+        public async Task<IActionResult> Edit(int? id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account)
         {
             if (id != account.AccountId)
             {
@@ -109,7 +106,7 @@ namespace Project3.Areas.Admin.Controllers
 
         // GET: Admin/AccountsAdmin/Delete/5
         
-        private bool AccountExists(int id)
+        private bool AccountExists(int? id)
         {
           return (_contextAcc.Accounts?.Any(a => a.AccountId == id)).GetValueOrDefault();
         }

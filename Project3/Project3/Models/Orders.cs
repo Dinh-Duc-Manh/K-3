@@ -15,10 +15,6 @@ namespace Project3.Models
         [Display(Name = "Receiver name")]
         public string? ReceiverName { get; set; }
 
-        [Column("OrderDate")]
-        [Display(Name = "Order date")]
-        public DateTime? OrderDate { get; set; }
-
         [Column("ReceiverAddress")]
         [Display(Name = "Receiver address")]
         public string? ReceiverAddress { get; set; }
@@ -30,6 +26,10 @@ namespace Project3.Models
         [Column("Note")]
         [Display(Name = "Note")]
         public string? Note { get; set; }
+
+        [Column("OrderDate")]
+        [Display(Name = "Order date")]
+        public DateTime? OrderDate { get; set; }
 
         [Column("CartId")]
         [Display(Name = "Cart")]

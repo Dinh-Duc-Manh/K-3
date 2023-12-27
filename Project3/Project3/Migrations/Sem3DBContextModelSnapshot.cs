@@ -175,6 +175,10 @@ namespace Project3.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("LongContent");
 
+                    b.Property<DateTime?>("NewsDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("NewsDate");
+
                     b.Property<string>("NewsImage")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("NewsImage");

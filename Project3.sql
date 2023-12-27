@@ -23,6 +23,7 @@ create table News(
 	Title ntext,
 	ShortContent ntext,
 	LongContent ntext,
+	NewsDate datetime DEFAULT GETDATE(),
 	NewsImage varchar(200),
 	NewsType varchar(200)
 )
@@ -60,10 +61,10 @@ CREATE TABLE Orders
 (
     OrdersId int PRIMARY KEY IDENTITY,
 	ReceiverName nvarchar(100),
-	OrderDate datetime DEFAULT GETDATE(),
 	ReceiverAddress nvarchar(200),
 	ReceiverPhone nvarchar(20),
 	Note ntext,
+	OrderDate datetime DEFAULT GETDATE(),
 	CartId int foreign key references Cart(CartId),
 	ProductId int foreign key references Product(ProductId),
 	AccountId int foreign key references Account(AccountId)

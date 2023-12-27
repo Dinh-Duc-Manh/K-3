@@ -38,10 +38,16 @@
             @Html.DisplayFor(model => model.LongContent)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NewsDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NewsImage)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NewsImage)
+            <img src="~/Images/@Model.NewsImage" width="50" />
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NewsType)

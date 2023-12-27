@@ -37,6 +37,7 @@
                 <input asp-for="LongContent" class="form-control" />
                 <span asp-validation-for="LongContent" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="NewsDate" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
             <div class="form-group">
                 <label asp-for="NewsImage" class="control-label"></label>
                 <input asp-for="NewsImage" type="file" class="form-control" />

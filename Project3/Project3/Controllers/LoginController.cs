@@ -35,7 +35,6 @@ namespace Project3.Controllers
                 {
                     HttpContext.Session.Clear();
                     HttpContext.Session.SetInt32("LoginId", checkAccount.AccountId);
-                    HttpContext.Session.SetString("Login", checkAccount.FullName);
                     HttpContext.Session.SetString("LoginName", checkAccount.FullName);
                     HttpContext.Session.SetString("LoginPhone", checkAccount.Phone);
                     HttpContext.Session.SetString("LoginEmail", checkAccount.Email);
@@ -122,7 +121,7 @@ namespace Project3.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Account(int id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account, string Image)
+        public async Task<IActionResult> Account(int? id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account, string? Image)
         {
             TempData["Message"] = "";
             if (id != account.AccountId)
@@ -170,7 +169,7 @@ namespace Project3.Controllers
             return View(account);
         }
 
-        private bool AccountExists(int id)
+        private bool AccountExists(int? id)
         {
             return (_context.Accounts?.Any(a => a.AccountId == id)).GetValueOrDefault();
         }
