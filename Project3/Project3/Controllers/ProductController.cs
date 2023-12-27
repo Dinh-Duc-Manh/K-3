@@ -72,6 +72,7 @@ namespace Project3.Controllers
                 return NotFound();
             }
             ViewData["pro_id"] = id;
+            ViewData["price"] = product.Price;
             return View(Cart_Pro);
         }
 

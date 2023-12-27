@@ -60,6 +60,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-md-12">
+                            <input type="hidden" name="TotalPrice" value='@ViewData["price"]' />
                             <input type="hidden" name="ProductId" value='@ViewData["pro_id"]' />
                             <input type="hidden" name="AccountId" value='@HttpContextAccessor.HttpContext.Session.GetInt32("LoginId")' />
                             @* <p style="color: #000;">600 kg available</p> *@

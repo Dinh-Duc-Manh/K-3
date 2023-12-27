@@ -59,8 +59,9 @@
                                             </div>
                                         </td>
 
-                                        @* <td class="total">@Html.DisplayFor(modelItem => item.TotalPrice)</td> *@
-                                        <td class="total">@(item.Quantity * item.Product.Price) $</td>
+                                        <td class="total">@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+                                        @* <td class="total">@(item.Quantity * item.Product.Price) $</td> *@
+                                        <input type="hidden" name="TotalPrice" value='@item.Product.Price' />
                                         <input type="hidden" name="ProductId" value="@item.ProductId" />
                                         <input type="hidden" name="AccountId" value="@item.AccountId" />
 

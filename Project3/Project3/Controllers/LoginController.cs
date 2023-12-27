@@ -33,12 +33,10 @@ namespace Project3.Controllers
                 var checkAccount1 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 if (checkAccount != null)
                 {
+                    HttpContext.Session.Clear();
                     HttpContext.Session.SetInt32("LoginId", checkAccount.AccountId);
-
                     HttpContext.Session.SetString("Login", checkAccount.FullName);
-
                     HttpContext.Session.SetString("LoginName", checkAccount.FullName);
-
                     HttpContext.Session.SetString("LoginPhone", checkAccount.Phone);
                     HttpContext.Session.SetString("LoginEmail", checkAccount.Email);
                     HttpContext.Session.SetString("LoginAddress", checkAccount.Address);
@@ -48,10 +46,11 @@ namespace Project3.Controllers
                 }
                 else if (checkAccount1 != null && checkAccount1.AccountStatus != "In force")
                 {
-                    HttpContext.Session.SetString("LoginError", checkAccount1.AccountStatus);
+                    HttpContext.Session.SetString("LoginStatus", checkAccount1.AccountStatus);
                 }
                 else
                 {
+                    HttpContext.Session.Clear();
                     TempData["MessageError"] = "Login information is incorrect or does not exist";
                 }
             }

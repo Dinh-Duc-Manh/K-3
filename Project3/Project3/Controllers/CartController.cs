@@ -32,13 +32,18 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
+        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId,")] Cart cart)
         {
-            //cart.TotalPrice = cart.Product.GetType * cart.Quantity;
-            //cart = cart_Pro;
+            cart.TotalPrice *= cart.Quantity;
+            if (cart.Quantity <1)
+            {
+
+                cart.Quantity = 1;
+            }
             if (ModelState.IsValid)
             {
                 var check = await _context.Carts.Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
+                //double TotalPrice = (double)(cart.Product.Price * (double)cart.Quantity);
                 if (check != null)
                 {
                     check.Quantity += cart.Quantity;
@@ -95,6 +100,12 @@ namespace Project3.Controllers
             {
                 try
                 {
+                    if ( cart.Quantity <1)
+                    {
+                        cart.Quantity = 1;
+                    }
+
+                    cart.TotalPrice *= cart.Quantity;
                     _context.Update(cart);
                     await _context.SaveChangesAsync();
                 }
