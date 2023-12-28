@@ -894,3 +894,8 @@ E:\New folder\sem3\Project3\Project3\obj\Debug\net6.0\refint\Project3.dll
 E:\New folder\sem3\Project3\Project3\obj\Debug\net6.0\Project3.pdb
 E:\New folder\sem3\Project3\Project3\obj\Debug\net6.0\Project3.genruntimeconfig.cache
 E:\New folder\sem3\Project3\Project3\obj\Debug\net6.0\ref\Project3.dll
+D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cache
+D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.RazorAssemblyInfo.cs
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutUser.cshtml.rz.scp.css
+D:\sem3\Project3\Project3\obj\Debug\net6.0\scopedcss\projectbundle\Project3.bundle.scp.css

@@ -1,6 +1,8 @@
-﻿@model Project3.ViewModels.News_Com
+﻿
+@model X.PagedList.IPagedList<Project3.Models.Comment>
+@using X.PagedList.Mvc.Core;
 
-<div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+<div class="hero-wrap hero-bread" style="background-image: url('~/StyleUser/images/bg_1.jpg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
@@ -15,8 +17,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 ftco-animate">
-                <h2 class="mb-3">@Html.DisplayFor(model => model.MNews.Title)</h2>
-                <span>@Html.DisplayFor(model => model.MNews.LongContent)</span>
+                <h2 class="mb-3">@ViewData["ne_title"]</h2>
+                <span>@ViewData["ne_LongContent"]</span>
                 <form action="#" class="p-5 bg-light">
                     <div class="form-group">
                         <label for="name">Name *</label>
@@ -38,107 +40,37 @@
                     <div class="form-group">
                         <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
                     </div>
-
                 </form>
             </div>
-
-
             <div class="pt-5 mt-5">
                 <h3 class="mb-5">6 Comments</h3>
                 <ul class="comment-list">
-                    <li class="comment">
-                        <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                        </div>
-                        <div class="comment-body">
-                            <h3>John Doe</h3>
-                            <div class="meta">June 27, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                        </div>
-                    </li>
-
-                    <li class="comment">
-                        <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                        </div>
-                        <div class="comment-body">
-                            <h3>John Doe</h3>
-                            <div class="meta">June 27, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                        </div>
-
-                        <ul class="children">
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="images/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta">June 27, 2018 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-
-
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="images/person_1.jpg" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta">June 27, 2018 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                            <p><a href="#" class="reply">Reply</a></p>
-                                        </div>
-
-                                        <ul class="children">
-                                            <li class="comment">
-                                                <div class="vcard bio">
-                                                    <img src="images/person_1.jpg" alt="Image placeholder">
-                                                </div>
-                                                <div class="comment-body">
-                                                    <h3>John Doe</h3>
-                                                    <div class="meta">June 27, 2018 at 2:21pm</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                    <p><a href="#" class="reply">Reply</a></p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="comment">
-                        <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                        </div>
-                        <div class="comment-body">
-                            <h3>John Doe</h3>
-                            <div class="meta">June 27, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                        </div>
-                    </li>
+                    @foreach (var item in Model)
+                    {
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <img src="~/StyleUser/images/person_1.jpg" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe</h3>
+                                <div class="meta">June 27, 2018 at 2:21pm</div>
+                                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                                <p><a href="#" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                    }
                 </ul>
                 <!-- END comment-list -->
-
-
             </div>
         </div> <!-- .col-md-8 -->
         <div class="col-lg-4 sidebar ftco-animate">
             <div class="sidebar-box">
             </div>
-
             <!-- map -->
             <div class="sidebar-box ftco-animate">
                 <h3 class="heading">Recent Blog</h3>
                 <div class="block-21 mb-4 d-flex">
-                    <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                    <a class="blog-img mr-4" style="background-image: url(~/StyleUser/images/image_1.jpg);"></a>
                     <div class="text">
                         <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                         <div class="meta">
@@ -149,7 +81,7 @@
                     </div>
                 </div>
                 <div class="block-21 mb-4 d-flex">
-                    <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                    <a class="blog-img mr-4" style="background-image: url(~/StyleUser/images/image_2.jpg);"></a>
                     <div class="text">
                         <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                         <div class="meta">
@@ -160,7 +92,7 @@
                     </div>
                 </div>
                 <div class="block-21 mb-4 d-flex">
-                    <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                    <a class="blog-img mr-4" style="background-image: url(~/StyleUser/images/image_3.jpg);"></a>
                     <div class="text">
                         <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                         <div class="meta">
@@ -171,9 +103,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section> <!-- .section -->

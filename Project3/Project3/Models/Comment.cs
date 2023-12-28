@@ -28,5 +28,15 @@ namespace Project3.Models
 
         [Display(Name = "Account")]
         public Account? Account { get; set; }
+
+        public static implicit operator Comment(List<Comment> v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static explicit operator Comment(News? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

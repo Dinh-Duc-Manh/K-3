@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project3.Data;
-using Project3.ViewModels;
 using X.PagedList;
 
 namespace Project3.Controllers
@@ -20,6 +19,7 @@ namespace Project3.Controllers
             int pageLimit = 4;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var news = await _context.News.OrderByDescending(n => n.NewsId).ToPagedListAsync(pageNumber, pageLimit);
+
             if (!String.IsNullOrEmpty(type))
             {
                 news = await _context.News.Where(n => n.NewsType.Contains(type)).OrderByDescending(n => n.NewsId).ToPagedListAsync(pageNumber, pageLimit);
@@ -27,7 +27,7 @@ namespace Project3.Controllers
             return View(news);
         }
 
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? page)
         {
             if (id == null || _context.News == null)
             {
@@ -35,17 +35,18 @@ namespace Project3.Controllers
             }
 
             var news = await _context.News.FirstOrDefaultAsync(n => n.NewsId == id);
-            var News_Com = new News_Com
-            {
-                MNews = news,
-                
-            };
+            int pageLimit = 8;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var comment = await _context.Comments.OrderByDescending(c => c.CommentId).ToPagedListAsync(pageNumber, pageLimit);
+
             if (news == null)
             {
                 return NotFound();
             }
 
-            return View(news);
+            ViewData["ne_title"] = news.Title;
+            ViewData["ne_LongContent"] = news.LongContent;
+            return View(comment);
         }
     }
 }
