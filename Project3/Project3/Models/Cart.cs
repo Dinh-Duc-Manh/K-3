@@ -33,7 +33,5 @@ namespace Project3.Models
 
         [Display(Name = "Account")]
         public Account? Account { get; set; }
-
-        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
     }
 }

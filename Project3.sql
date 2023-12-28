@@ -64,8 +64,9 @@ CREATE TABLE Orders
 	ReceiverPhone nvarchar(20),
 	ReceiverAddress nvarchar(200),
 	Note ntext,
+	Quantity int,
+	TotalPrice Float,
 	OrderDate datetime DEFAULT GETDATE(),
-	--CartId int foreign key references Cart(CartId),
 	ProductId int foreign key references Product(ProductId),
 	AccountId int foreign key references Account(AccountId)
 )

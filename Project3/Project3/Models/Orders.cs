@@ -13,27 +13,38 @@ namespace Project3.Models
 
         [Column("ReceiverName")]
         [Display(Name = "Receiver name")]
+        [Required(ErrorMessage = "Receiver name cannot be blank")]
         public string? ReceiverName { get; set; }
 
         [Column("ReceiverPhone")]
         [Display(Name = "Receiver phone")]
+        [Required(ErrorMessage = "Receiver phone can not be left blank")]
+        [MinLength(10, ErrorMessage = "Receiver phone must have at least 10 digits")]
+        [StringLength(10)]
+        [Phone(ErrorMessage = "Receiver phone format is incorrect")]
         public string? ReceiverPhone { get; set; }
 
         [Column("ReceiverAddress")]
         [Display(Name = "Receiver address")]
+        [Required(ErrorMessage = "Receiver address be left blank")]
         public string? ReceiverAddress { get; set; }
 
         [Column("Note")]
         [Display(Name = "Note")]
         public string? Note { get; set; }
 
+        [Column("Quantity")]
+        [Display(Name = "Quantity")]
+        public int? Quantity { get; set; }
+
+        [Column("TotalPrice")]
+        [Display(Name = "Total Price")]
+        [DisplayFormat(DataFormatString = "{0:#,0 $}")]
+        public double? TotalPrice { get; set; }
+
         [Column("OrderDate")]
         [Display(Name = "Order date")]
         public DateTime? OrderDate { get; set; }
-
-        [Column("CartId")]
-        [Display(Name = "Cart")]
-        public int? CartId { get; set; }
 
         [Column("ProductId")]
         [Display(Name = "Product")]
@@ -42,9 +53,6 @@ namespace Project3.Models
         [Column("AccountId")]
         [Display(Name = "Account")]
         public int? AccountId { get; set; }
-
-        [Display(Name = "Cart")]
-        public Cart? Cart { get; set; }
 
         [Display(Name = "Product")]
         public Product? Product { get; set; }

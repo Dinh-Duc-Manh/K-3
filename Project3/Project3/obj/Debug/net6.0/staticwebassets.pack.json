@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "D:\\sem3\\Project3\\Project3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Project3.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Project3.bundle.scp.css"
-    },
-    {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\Images\\AdvilLiqui-Gels.jpg",
       "PackagePath": "staticwebassets\\Images\\AdvilLiqui-Gels.jpg"
     },
@@ -9701,6 +9697,10 @@
       "PackagePath": "staticwebassets\\StyleUser\\images\\ab1.jpg"
     },
     {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\ab2.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\ab2.jpg"
+    },
+    {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\about.jpg",
       "PackagePath": "staticwebassets\\StyleUser\\images\\about.jpg"
     },
@@ -9747,6 +9747,10 @@
     {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\bs4.jpg",
       "PackagePath": "staticwebassets\\StyleUser\\images\\bs4.jpg"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\cart1.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\cart1.jpg"
     },
     {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\category-1.jpg",
@@ -9831,6 +9835,10 @@
     {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\person_4.jpg",
       "PackagePath": "staticwebassets\\StyleUser\\images\\person_4.jpg"
+    },
+    {
+      "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\pro1.jpg",
+      "PackagePath": "staticwebassets\\StyleUser\\images\\pro1.jpg"
     },
     {
       "Id": "D:\\sem3\\Project3\\Project3\\wwwroot\\StyleUser\\images\\product-1.jpg",
