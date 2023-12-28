@@ -578,7 +578,6 @@ D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.AssemblyInfo.cs
 D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.csproj.CoreCompileInputs.cache
 D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.MvcApplicationPartsAssemblyInfo.cs
 D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.MvcApplicationPartsAssemblyInfo.cache
-D:\sem3\Project3\Project3\obj\Debug\net6.0\Project3.sourcelink.json
 D:\sem3\Project3\Project3\obj\Debug\net6.0\staticwebassets.build.json
 D:\sem3\Project3\Project3\obj\Debug\net6.0\staticwebassets.development.json
 D:\sem3\Project3\Project3\obj\Debug\net6.0\staticwebassets\msbuild.Project3.Microsoft.AspNetCore.StaticWebAssets.props
