@@ -23,6 +23,7 @@ namespace Project3.Controllers
         public IActionResult Index(Login model)
         {
             TempData["MessageError"] = "";
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -31,6 +32,7 @@ namespace Project3.Controllers
             {
                 var checkAccount = _context.Accounts.Where(a => a.AccountStatus == "In force").FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
                 var checkAccount1 = _context.Accounts.FirstOrDefault(a => a.Email == model.Email && a.Password == model.Password);
+
                 if (checkAccount != null)
                 {
                     HttpContext.Session.Clear();
@@ -68,14 +70,17 @@ namespace Project3.Controllers
         {
             TempData["Message"] = "";
             var accounts = _context.Accounts.FirstOrDefault(a => a.Email.Equals(account.Email));
+
             if (accounts != null)
             {
                 ViewBag.error = "Account Email already exists";
                 return View();
             }
+
             if (ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
+
                 if (files.Count() > 0 && files[0].Length > 0)
                 {
                     var file = files[0];
@@ -87,6 +92,7 @@ namespace Project3.Controllers
                         account.Avatar = FileName;
                     }
                 }
+
                 _context.Add(account);
                 await _context.SaveChangesAsync();
                 TempData["Message"] = "New account added successfully";
@@ -112,6 +118,7 @@ namespace Project3.Controllers
             }
 
             var account = await _context.Accounts.FindAsync(id);
+
             if (account == null)
             {
                 return NotFound();
@@ -124,6 +131,7 @@ namespace Project3.Controllers
         public async Task<IActionResult> Account(int? id, [Bind("AccountId,FullName,Email,Password,Phone,Address,Avatar,AccountStatus,AccountType")] Account account, string? Image)
         {
             TempData["Message"] = "";
+
             if (id != account.AccountId)
             {
                 return NotFound();
@@ -134,6 +142,7 @@ namespace Project3.Controllers
                 try
                 {
                     var files = HttpContext.Request.Form.Files;
+
                     if (files.Count() > 0 && files[0].Length > 0)
                     {
                         var file = files[0];
@@ -149,6 +158,7 @@ namespace Project3.Controllers
                     {
                         account.Avatar = Image;
                     }
+
                     _context.Update(account);
                     await _context.SaveChangesAsync();
                     TempData["Message"] = "Product update successful";

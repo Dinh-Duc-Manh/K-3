@@ -24,6 +24,7 @@ namespace Project3.Controllers
         // GET: Cart
         public async Task<IActionResult> Index()
         {
+<<<<<<< HEAD
             
             var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product);
             int c = 0;
@@ -41,6 +42,9 @@ namespace Project3.Controllers
 
                 }
             }
+=======
+            var sem3DBContext = _context.Carts.Include(a => a.Account).Include(p => p.Product);
+>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa
             return View(await sem3DBContext.ToListAsync());
         }
 
@@ -49,21 +53,32 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId,")] Cart cart)
+        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
         {
             cart.TotalPrice *= cart.Quantity;
+<<<<<<< HEAD
             if (cart.Quantity < 1)
-            {
+=======
 
+            if (cart.Quantity <1)
+>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa
+            {
                 cart.Quantity = 1;
             }
+
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
                 var check = await _context.Carts.Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
 
                 //double TotalPrice = (double)(cart.Product.Price * (double)cart.Quantity);
 
 
+=======
+                var check = await _context.Carts.Include(a => a.Account).Include(p => p.Product).Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
+                //double TotalPrice = (double)(cart.Product.Price * (double)cart.Quantity);
+
+>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa
                 if (check != null)
                 {
                     check.Quantity += cart.Quantity;
@@ -80,12 +95,18 @@ namespace Project3.Controllers
 
 
             }
+<<<<<<< HEAD
+=======
+
+            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", cart.AccountId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
+>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa
             return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int CartId, [Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
+        public async Task<IActionResult> Edit(int? CartId, [Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
         {
             if (CartId != cart.CartId)
             {
@@ -118,11 +139,12 @@ namespace Project3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", cart.AccountId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Description", cart.ProductId);
             return View(cart);
         }
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             //TempData["Message"] = "";
             _context.Remove(_context.Carts.Find(id));
@@ -131,9 +153,13 @@ namespace Project3.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CartExists(int id)
+        private bool CartExists(int? id)
         {
+<<<<<<< HEAD
             return (_context.Carts?.Any(e => e.CartId == id)).GetValueOrDefault();
+=======
+          return (_context.Carts?.Any(c => c.CartId == id)).GetValueOrDefault();
+>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa
         }
     }
 }

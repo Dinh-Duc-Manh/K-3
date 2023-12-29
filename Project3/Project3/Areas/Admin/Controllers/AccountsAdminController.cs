@@ -40,13 +40,12 @@ namespace Project3.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var account = await _contextAcc.Accounts
-                .FirstOrDefaultAsync(a => a.AccountId == id);
+            var account = await _contextAcc.Accounts.FirstOrDefaultAsync(a => a.AccountId == id);
+
             if (account == null)
             {
                 return NotFound();
             }
-
             return View(account);
         }
 
@@ -62,6 +61,7 @@ namespace Project3.Areas.Admin.Controllers
             }
 
             var account = await _contextAcc.Accounts.FindAsync(id);
+
             if (account == null)
             {
                 return NotFound();

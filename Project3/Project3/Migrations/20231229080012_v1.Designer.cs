@@ -12,8 +12,13 @@ using Project3.Data;
 namespace Project3.Migrations
 {
     [DbContext(typeof(Sem3DBContext))]
+<<<<<<<< HEAD:Project3/Project3/Migrations/20231229080012_v1.Designer.cs
     [Migration("20231229080012_v1")]
     partial class v1
+========
+    [Migration("20231229080043_s3")]
+    partial class s3
+>>>>>>>> 9b91d03d27dce08e03dabcad27c2d82fd1e356fa:Project3/Project3/Migrations/20231229080043_s3.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

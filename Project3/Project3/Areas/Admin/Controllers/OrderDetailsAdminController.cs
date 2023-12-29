@@ -33,14 +33,12 @@ namespace Project3.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var orderDetail = await _contextOD.OrderDetails
-                .Include(o => o.Orders)
-                .FirstOrDefaultAsync(o => o.OrderDetailId == id);
+            var orderDetail = await _contextOD.OrderDetails.Include(o => o.Orders).FirstOrDefaultAsync(o => o.OrderDetailId == id);
+
             if (orderDetail == null)
             {
                 return NotFound();
             }
-
             return View(orderDetail);
         }
 
@@ -55,10 +53,12 @@ namespace Project3.Areas.Admin.Controllers
             }
 
             var orderDetail = await _contextOD.OrderDetails.FindAsync(id);
+
             if (orderDetail == null)
             {
                 return NotFound();
             }
+
             ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
             return View(orderDetail);
         }
@@ -95,6 +95,7 @@ namespace Project3.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
             return View(orderDetail);
         }
