@@ -40,13 +40,12 @@ namespace Project3.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var category = await _contextCat.Categories
-                .FirstOrDefaultAsync(c => c.CategoryId == id);
+            var category = await _contextCat.Categories.FirstOrDefaultAsync(c => c.CategoryId == id);
+
             if (category == null)
             {
                 return NotFound();
             }
-
             return View(category);
         }
 
@@ -65,11 +64,13 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var categories = _contextCat.Categories.FirstOrDefault(c => c.CategoryName.Equals(category.CategoryName));
+
             if (categories != null)
             {
                 ViewBag.error = "The category name already exists";
                 return View();
             }
+
             if (ModelState.IsValid)
             {
                 _contextCat.Add(category);
@@ -89,6 +90,7 @@ namespace Project3.Areas.Admin.Controllers
             }
 
             var category = await _contextCat.Categories.FindAsync(id);
+
             if (category == null)
             {
                 return NotFound();
@@ -105,6 +107,7 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var categories = _contextCat.Categories.FirstOrDefault(c => c.CategoryName.Equals(category.CategoryName) && c.CategoryId != category.CategoryId);
+
             if (categories != null)
             {
                 ViewBag.error = "The category name already exists";
@@ -146,11 +149,13 @@ namespace Project3.Areas.Admin.Controllers
             TempData["Message"] = "";
             TempData["MessageError"] = "";
             var product = _contextCat.Products.Where(p => p.CategoryId == id).ToList();
+
             if (product.Count() > 0)
             {
                 TempData["MessageError"] = "Deletion failed because there are products";
                 return RedirectToAction(nameof(Index));
             }
+
             _contextCat.Remove(_contextCat.Categories.Find(id));
             _contextCat.SaveChanges();
             TempData["Message"] = "Category deletion successful";

@@ -58,7 +58,7 @@
                     @Html.DisplayFor(modelItem => item.ShortContent)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LongContent)
+                    @Html.Raw(item.LongContent)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NewsDate)

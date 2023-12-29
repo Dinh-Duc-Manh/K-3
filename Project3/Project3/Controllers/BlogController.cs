@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project3.Data;
+using Project3.Models;
 using X.PagedList;
 
 namespace Project3.Controllers
@@ -14,6 +16,7 @@ namespace Project3.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index(string? type, int? page)
         {
             int pageLimit = 4;
@@ -27,6 +30,7 @@ namespace Project3.Controllers
             return View(news);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Details(int? id, int? page)
         {
             if (id == null || _context.News == null)
@@ -37,7 +41,7 @@ namespace Project3.Controllers
             var news = await _context.News.FirstOrDefaultAsync(n => n.NewsId == id);
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var comment = await _context.Comments.OrderByDescending(c => c.CommentId).ToPagedListAsync(pageNumber, pageLimit);
+            var comm = await _context.Comments.Include(n => n.News).Include(a => a.Account).Where(n => n.NewsId == id).OrderByDescending(c => c.CommentId).ToPagedListAsync(pageNumber, pageLimit);
 
             if (news == null)
             {
@@ -46,7 +50,29 @@ namespace Project3.Controllers
 
             ViewData["ne_title"] = news.Title;
             ViewData["ne_LongContent"] = news.LongContent;
-            return View(comment);
+            ViewData["ne_id"] = id;
+            return View(comm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("CommentId,Content,NewsId,AccountId")] Comment comment, int? NewsId)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(comment);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(Details);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            _context.Remove(_context.Comments.Find(id));
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

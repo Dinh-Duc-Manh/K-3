@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<Project3.Models.Cart>
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <div class="hero-wrap hero-bread" style="background-image: url('/StyleUser/images/cart1.jpg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="#">Home</a></span> <span>Cart</span></p>
                 <h1 class="mb-0 bread">My Cart</h1>
             </div>
         </div>
@@ -60,7 +60,7 @@
                                         </td>
 
                                         <td class="total">@Html.DisplayFor(modelItem => item.TotalPrice)</td>
-                                        @* <td class="total">@(item.Quantity * item.Product.Price) $</td> *@
+                                            @* <td class="total">@(item.Quantity * item.Product.Price) $</td> *@
                                         <input type="hidden" name="TotalPrice" value='@item.Product.Price' />
                                         <input type="hidden" name="ProductId" value="@item.ProductId" />
                                         <input type="hidden" name="AccountId" value="@item.AccountId" />
@@ -78,31 +78,31 @@
                 </div>
             </div>
         </div>
-        
-            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
-                    <h3>Cart Totals</h3>
-                    <p class="d-flex">
-                        <span>Subtotal</span>
-                        <span>$20.60</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Delivery</span>
-                        <span>$0.00</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Discount</span>
-                        <span>$3.00</span>
-                    </p>
-                    <hr>
-                    <p class="d-flex total-price">
-                        <span>Total</span>
-                        <span>$17.60</span>
-                    </p>
-                </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+
+        <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+                <h3>Cart Totals</h3>
+                <p class="d-flex">
+                    <span>Subtotal</span>
+                    <span>$20.60</span>
+                </p>
+                <p class="d-flex">
+                    <span>Delivery</span>
+                    <span>$0.00</span>
+                </p>
+                <p class="d-flex">
+                    <span>Discount</span>
+                    <span>$3.00</span>
+                </p>
+                <hr>
+                <p class="d-flex total-price">
+                    <span>Total</span>
+                    <span>$17.60</span>
+                </p>
             </div>
+            <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
         </div>
+    </div>
     </div>
 </section>
 

@@ -26,29 +26,25 @@ namespace Project3.Controllers
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-
+            var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
             //if (!String.IsNullOrEmpty(name))
             //{
             //    pro = await _context.Products.Where(c => c.ProductName.Contains(name)).OrderBy(c => c.ProductId).ToPagedListAsync(pageNumber, pageLimit);
             //}
-
             return View(product);
         }
         public async Task<IActionResult> Medical(int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-
+            var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
             return View(product);
         }
         public async Task<IActionResult> Science(int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.Where(c => c.Category.CategoryType == "Science").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-
+            var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Science").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
             return View(product);
         }
 
@@ -67,19 +63,15 @@ namespace Project3.Controllers
                 MPro = product,
                 //MCart = cart
             };
+
             if (product == null)
             {
                 return NotFound();
             }
+
             ViewData["pro_id"] = id;
             ViewData["price"] = product.Price;
             return View(Cart_Pro);
-        }
-
-
-        private bool ProductExists(int? id)
-        {
-          return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
         }
     }
 }

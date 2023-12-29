@@ -13,6 +13,7 @@ namespace Project3.Controllers
                     new RouteValueDictionary(new { Area = "", Controller = "Home", Action = "Index" })
                 );
             }
+
             if (context.HttpContext.Session.GetString("LoginName") == null)
             {
                 context.Result = new RedirectToRouteResult(

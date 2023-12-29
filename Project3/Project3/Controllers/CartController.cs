@@ -23,7 +23,7 @@ namespace Project3.Controllers
         // GET: Cart
         public async Task<IActionResult> Index()
         {
-            var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product);
+            var sem3DBContext = _context.Carts.Include(a => a.Account).Include(p => p.Product);
             return View(await sem3DBContext.ToListAsync());
         }
 
@@ -32,18 +32,20 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId,")] Cart cart)
+        public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
         {
             cart.TotalPrice *= cart.Quantity;
+
             if (cart.Quantity <1)
             {
-
                 cart.Quantity = 1;
             }
+
             if (ModelState.IsValid)
             {
-                var check = await _context.Carts.Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
+                var check = await _context.Carts.Include(a => a.Account).Include(p => p.Product).Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
                 //double TotalPrice = (double)(cart.Product.Price * (double)cart.Quantity);
+
                 if (check != null)
                 {
                     check.Quantity += cart.Quantity;
@@ -60,6 +62,7 @@ namespace Project3.Controllers
 
 
             }
+
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", cart.AccountId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
             return RedirectToAction(nameof(Index));
@@ -89,7 +92,7 @@ namespace Project3.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int CartId, [Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
+        public async Task<IActionResult> Edit(int? CartId, [Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
         {
             if (CartId != cart.CartId)
             {
@@ -122,11 +125,12 @@ namespace Project3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", cart.AccountId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Description", cart.ProductId);
             return View(cart);
         }
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             //TempData["Message"] = "";
             _context.Remove(_context.Carts.Find(id));
@@ -135,9 +139,9 @@ namespace Project3.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CartExists(int id)
+        private bool CartExists(int? id)
         {
-          return (_context.Carts?.Any(e => e.CartId == id)).GetValueOrDefault();
+          return (_context.Carts?.Any(c => c.CartId == id)).GetValueOrDefault();
         }
     }
 }

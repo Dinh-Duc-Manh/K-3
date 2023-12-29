@@ -35,7 +35,7 @@
             @Html.DisplayNameFor(model => model.LongContent)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LongContent)
+            @Html.Raw(Model.LongContent)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NewsDate)

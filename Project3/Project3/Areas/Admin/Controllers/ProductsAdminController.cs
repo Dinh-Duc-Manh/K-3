@@ -24,11 +24,11 @@ namespace Project3.Areas.Admin.Controllers
         {
             int pageLimit = 4;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _contextPro.Products.Include(p => p.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            var product = await _contextPro.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
 
             if (!String.IsNullOrEmpty(name))
             {
-                product = await _contextPro.Products.Include(p => p.Category).Where(p => p.ProductName.Contains(name)).OrderBy(p => p.ProductName).ToPagedListAsync(pageNumber, pageLimit);
+                product = await _contextPro.Products.Include(c => c.Category).Where(p => p.ProductName.Contains(name)).OrderBy(p => p.ProductName).ToPagedListAsync(pageNumber, pageLimit);
             }
             return View(product);
         }
@@ -41,14 +41,12 @@ namespace Project3.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var product = await _contextPro.Products
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(p => p.ProductId == id);
+            var product = await _contextPro.Products.Include(c => c.Category).FirstOrDefaultAsync(p => p.ProductId == id);
+
             if (product == null)
             {
                 return NotFound();
             }
-
             return View(product);
         }
 
@@ -68,14 +66,17 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var products = _contextPro.Products.FirstOrDefault(p => p.ProductName.Equals(product.ProductName));
+
             if (products != null)
             {
                 ViewBag.error = "Product name already exists";
                 return View();
             }
+
             if (ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
+
                 if (files.Count() > 0 && files[0].Length > 0)
                 {
                     var file = files[0];
@@ -122,6 +123,7 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var products = _contextPro.Products.FirstOrDefault(p => p.ProductName.Equals(product.ProductName) && p.ProductId != product.ProductId);
+
             if (products != null)
             {
                 ViewBag.error = "Product name already exists";
@@ -138,6 +140,7 @@ namespace Project3.Areas.Admin.Controllers
                 try
                 {
                     var files = HttpContext.Request.Form.Files;
+
                     if (files.Count() > 0 && files[0].Length > 0)
                     {
                         var file = files[0];
@@ -153,6 +156,7 @@ namespace Project3.Areas.Admin.Controllers
                     {
                         product.ProductImage = Image;
                     }
+
                     _contextPro.Update(product);
                     await _contextPro.SaveChangesAsync();
                     TempData["Message"] = "Product update successful";
@@ -170,6 +174,7 @@ namespace Project3.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["CategoryId"] = new SelectList(_contextPro.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }

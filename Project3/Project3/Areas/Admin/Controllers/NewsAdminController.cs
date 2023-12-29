@@ -35,13 +35,12 @@ namespace Project3.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var news = await _contextNew.News
-                .FirstOrDefaultAsync(n => n.NewsId == id);
+            var news = await _contextNew.News.FirstOrDefaultAsync(n => n.NewsId == id);
+
             if (news == null)
             {
                 return NotFound();
             }
-
             return View(news);
         }
 
@@ -60,14 +59,17 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title));
+
             if (ne != null)
             {
                 ViewBag.error = "The Title already exists";
                 return View();
             }
+
             if (ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
+
                 if (files.Count() > 0 && files[0].Length > 0)
                 {
                     var file = files[0];
@@ -79,6 +81,7 @@ namespace Project3.Areas.Admin.Controllers
                         news.NewsImage = FileName;
                     }
                 }
+
                 _contextNew.Add(news);
                 await _contextNew.SaveChangesAsync();
                 TempData["Message"] = "New news added successfully";
@@ -96,6 +99,7 @@ namespace Project3.Areas.Admin.Controllers
             }
 
             var news = await _contextNew.News.FindAsync(id);
+
             if (news == null)
             {
                 return NotFound();
@@ -112,6 +116,7 @@ namespace Project3.Areas.Admin.Controllers
         {
             TempData["Message"] = "";
             var ne = _contextNew.News.FirstOrDefault(n => n.Title.Equals(news.Title) && n.NewsId != news.NewsId);
+
             if (ne != null)
             {
                 ViewBag.error = "The Title already exists";
@@ -128,6 +133,7 @@ namespace Project3.Areas.Admin.Controllers
                 try
                 {
                     var files = HttpContext.Request.Form.Files;
+
                     if (files.Count() > 0 && files[0].Length > 0)
                     {
                         var file = files[0];
@@ -143,6 +149,7 @@ namespace Project3.Areas.Admin.Controllers
                     {
                         news.NewsImage = Image;
                     }
+
                     _contextNew.Update(news);
                     await _contextNew.SaveChangesAsync();
                     TempData["Message"] = "News update successful";
@@ -169,11 +176,13 @@ namespace Project3.Areas.Admin.Controllers
             TempData["Message"] = "";
             TempData["MessageError"] = "";
             var comment = _contextNew.Comments.Where(c => c.CommentId == id).ToList();
+
             if (comment.Count() > 0)
             {
                 TempData["MessageError"] = "Deletion failed because there are Comments";
                 return RedirectToAction(nameof(Index));
             }
+
             _contextNew.Remove(_contextNew.News.Find(id));
             _contextNew.SaveChanges();
             TempData["Message"] = "News deletion successful";

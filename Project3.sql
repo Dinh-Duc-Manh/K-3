@@ -44,6 +44,7 @@ CREATE TABLE Comment
 (
     CommentId int PRIMARY KEY IDENTITY,
 	Content ntext,
+	CommentDate datetime DEFAULT GETDATE(),
 	NewsId int foreign key references News(NewsId),
 	AccountId int foreign key references Account(AccountId)
 )
