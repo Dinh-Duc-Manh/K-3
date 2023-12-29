@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\sem3\\Project3\\Project3\\Project3.csproj": {}
+    "C:\\Users\\admin\\Documents\\Kỳ 3\\sem3\\Project3\\Project3\\Project3.csproj": {}
   },
   "projects": {
-    "D:\\sem3\\Project3\\Project3\\Project3.csproj": {
+    "C:\\Users\\admin\\Documents\\Kỳ 3\\sem3\\Project3\\Project3\\Project3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sem3\\Project3\\Project3\\Project3.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Documents\\Kỳ 3\\sem3\\Project3\\Project3\\Project3.csproj",
         "projectName": "Project3",
-        "projectPath": "D:\\sem3\\Project3\\Project3\\Project3.csproj",
-        "packagesPath": "C:\\Users\\Admin7510\\.nuget\\packages\\",
-        "outputPath": "D:\\sem3\\Project3\\Project3\\obj\\",
+        "projectPath": "C:\\Users\\admin\\Documents\\Kỳ 3\\sem3\\Project3\\Project3\\Project3.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\Documents\\Kỳ 3\\sem3\\Project3\\Project3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin7510\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,6 +61,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.16, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "X.PagedList": {
               "target": "Package",

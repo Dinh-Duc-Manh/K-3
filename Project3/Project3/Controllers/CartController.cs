@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,7 +24,23 @@ namespace Project3.Controllers
         // GET: Cart
         public async Task<IActionResult> Index()
         {
+            
             var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product);
+            int c = 0;
+            Int32 a = 0;
+            foreach (var item in sem3DBContext)
+            {
+                if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
+                {
+
+                    c++;
+                    ViewData["Number_Pro"] = c;
+                    a += (Int32)item.TotalPrice;
+                    ViewData["Total_Cart"] = a.ToString("#,##0 $");
+
+
+                }
+            }
             return View(await sem3DBContext.ToListAsync());
         }
 
@@ -35,7 +52,7 @@ namespace Project3.Controllers
         public async Task<IActionResult> Create([Bind("CartId,Quantity,TotalPrice,ProductId,AccountId,")] Cart cart)
         {
             cart.TotalPrice *= cart.Quantity;
-            if (cart.Quantity <1)
+            if (cart.Quantity < 1)
             {
 
                 cart.Quantity = 1;
@@ -43,50 +60,29 @@ namespace Project3.Controllers
             if (ModelState.IsValid)
             {
                 var check = await _context.Carts.Where(a => a.ProductId == cart.ProductId && a.AccountId == cart.AccountId).FirstOrDefaultAsync();
+
                 //double TotalPrice = (double)(cart.Product.Price * (double)cart.Quantity);
+
+
                 if (check != null)
                 {
                     check.Quantity += cart.Quantity;
                     _context.Update(check);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    //return RedirectToAction(nameof(Index));
                 }
                 else
                 {
                     _context.Add(cart);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    //return RedirectToAction(nameof(Index));
                 }
 
 
             }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", cart.AccountId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Cart/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null || _context.Carts == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var cart = await _context.Carts.FindAsync(id);
-        //    if (cart == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", cart.AccountId);
-        //    ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Description", cart.ProductId);
-        //    return View(cart);
-        //}
-
-        // POST: Cart/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int CartId, [Bind("CartId,Quantity,TotalPrice,ProductId,AccountId")] Cart cart)
@@ -100,7 +96,7 @@ namespace Project3.Controllers
             {
                 try
                 {
-                    if ( cart.Quantity <1)
+                    if (cart.Quantity < 1)
                     {
                         cart.Quantity = 1;
                     }
@@ -137,7 +133,7 @@ namespace Project3.Controllers
 
         private bool CartExists(int id)
         {
-          return (_context.Carts?.Any(e => e.CartId == id)).GetValueOrDefault();
+            return (_context.Carts?.Any(e => e.CartId == id)).GetValueOrDefault();
         }
     }
 }

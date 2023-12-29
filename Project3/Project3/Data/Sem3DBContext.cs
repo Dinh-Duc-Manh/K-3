@@ -19,6 +19,7 @@ namespace Project3.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<OrderDetail>(od => od.Property(odc => odc.OrderDetailId).ValueGeneratedOnAdd());
             base.OnModelCreating(modelBuilder);
         }
     }
