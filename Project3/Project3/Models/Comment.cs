@@ -15,6 +15,10 @@ namespace Project3.Models
         [Display(Name = "Comment Content")]
         public string? Content { get; set; }
 
+        [Column("CommentDate")]
+        [Display(Name = "Comment date")]
+        public DateTime? CommentDate { get; set; }
+
         [Column("NewsId")]
         [Display(Name = "News")]
         public int? NewsId { get; set; }

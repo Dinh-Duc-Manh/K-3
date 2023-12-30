@@ -22,29 +22,38 @@ namespace Project3.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(int? page)
+        public async Task<IActionResult> Index(string? name, int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            //if (!String.IsNullOrEmpty(name))
-            //{
-            //    pro = await _context.Products.Where(c => c.ProductName.Contains(name)).OrderBy(c => c.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            //}
-            return View(product);
+
+            if (!String.IsNullOrEmpty(name))
+            {
+                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            }
+             return View(product);
         }
-        public async Task<IActionResult> Medical(int? page)
+        public async Task<IActionResult> Medical(string? name, int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            if (!String.IsNullOrEmpty(name))
+            {
+                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            }
             return View(product);
         }
-        public async Task<IActionResult> Science(int? page)
+        public async Task<IActionResult> Science(string? name, int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Science").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            if (!String.IsNullOrEmpty(name))
+            {
+                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+            }
             return View(product);
         }
 

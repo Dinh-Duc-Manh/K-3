@@ -22,7 +22,7 @@ namespace Project3.Controllers
         // GET: OrderDetail
         public async Task<IActionResult> Index()
         {
-            var sem3DBContext = _context.OrderDetails.Include(o => o.Orders);
+            var sem3DBContext = _context.OrderDetails.Include(o => o.Product).Include(o => o.Orders);
             return View(await sem3DBContext.ToListAsync());
         }
 
@@ -34,9 +34,7 @@ namespace Project3.Controllers
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails
-                .Include(o => o.Orders)
-                .FirstOrDefaultAsync(m => m.OrderDetailId == id);
+            var orderDetail = await _context.OrderDetails.Include(o => o.Product).Include(o => o.Orders).FirstOrDefaultAsync(m => m.OrderDetailId == id);
             if (orderDetail == null)
             {
                 return NotFound();
@@ -52,7 +50,7 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
+        public async Task<IActionResult> Create([Bind("OrderDetailId,Quantity,TotalPrice,OrderDetailStatus,ProductId,OrdersId")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +64,7 @@ namespace Project3.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "ReceiverAddress", orderDetail.OrdersId);
+            ViewData["ProductId"] = new SelectList(_context.Orders, "ProductId", "ProductId", orderDetail.ProductId);
             return View(orderDetail);
         }
 
@@ -83,6 +82,7 @@ namespace Project3.Controllers
                 return NotFound();
             }
             ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "ReceiverAddress", orderDetail.OrdersId);
+            ViewData["ProductId"] = new SelectList(_context.Orders, "ProductId", "ProductId", orderDetail.ProductId);
             return View(orderDetail);
         }
 
@@ -91,7 +91,7 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int? id, [Bind("OrderDetailId,Quantity,TotalPrice,OrderDetailStatus,ProductId,OrdersId")] OrderDetail orderDetail)
         {
             if (id != orderDetail.OrderDetailId)
             {
@@ -119,6 +119,7 @@ namespace Project3.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OrdersId"] = new SelectList(_context.Orders, "OrdersId", "ReceiverAddress", orderDetail.OrdersId);
+            ViewData["ProductId"] = new SelectList(_context.Orders, "ProductId", "ProductId", orderDetail.ProductId);
             return View(orderDetail);
         }
 
@@ -130,9 +131,7 @@ namespace Project3.Controllers
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails
-                .Include(o => o.Orders)
-                .FirstOrDefaultAsync(m => m.OrderDetailId == id);
+            var orderDetail = await _context.OrderDetails.Include(o => o.Product).Include(o => o.Orders).FirstOrDefaultAsync(m => m.OrderDetailId == id);
             if (orderDetail == null)
             {
                 return NotFound();
@@ -144,7 +143,7 @@ namespace Project3.Controllers
         // POST: OrderDetail/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             if (_context.OrderDetails == null)
             {
@@ -160,9 +159,9 @@ namespace Project3.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrderDetailExists(int id)
+        private bool OrderDetailExists(int? id)
         {
-          return (_context.OrderDetails?.Any(e => e.OrderDetailId == id)).GetValueOrDefault();
+          return (_context.OrderDetails?.Any(o => o.OrderDetailId == id)).GetValueOrDefault();
         }
     }
 }

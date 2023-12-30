@@ -42,6 +42,6 @@ namespace Project3.Models
         [Display(Name = "Product category")]
         public Category? Category { get; set; }
         public ICollection<Cart> Carts { get; set; } = new List<Cart>();
-        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
+        public ICollection<OrderDetail> OrderDetail { get; set; } = new List<OrderDetail>();
     }
 }

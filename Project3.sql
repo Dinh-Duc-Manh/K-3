@@ -65,17 +65,17 @@ CREATE TABLE Orders
 	ReceiverPhone nvarchar(20),
 	ReceiverAddress nvarchar(200),
 	Note ntext,
-	Quantity int,
-	TotalPrice Float,
 	OrderDate datetime DEFAULT GETDATE(),
-	ProductId int foreign key references Product(ProductId),
 	AccountId int foreign key references Account(AccountId)
 )
 go
 CREATE TABLE OrderDetail
 (
-    OrderDetailId int PRIMARY KEY IDENTITY,
+	OrderDetailId int PRIMARY KEY IDENTITY,
+	Quantity int,
+	TotalPrice Float,
 	OrderDetailStatus varchar(200),
+	ProductId int foreign key references Product(ProductId),
 	OrderId int foreign key references Orders(OrdersId)
 )
 go

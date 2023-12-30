@@ -145,21 +145,8 @@ INSERT INTO Account VALUES ('User2','user2@gmail.com', '123456', '0987654321', N
 go
 select * from Account
 go
-INSERT INTO Comment VALUES ('hdgguighestaurifdfehwheijbjzmbvnnjguyrgggrhykiljhftyktstshttnmv,cxe',2,1);
-INSERT INTO Comment VALUES ('tetdhrfyykilieqerwteyurtiyoufdstouhiusrurhjjrirxuirytyyruiertfweudfesayygdfyeafgheuyufuyuesyeuueugbhtygthghhghjgguughhuuvyhcjnnnai',2,2);
+INSERT INTO Comment VALUES ('hdgguighestaurifdfehwheijbjzmbvnnjguyrgggrhykiljhftyktstshttnmvcxe', GETDATE(), 2, 1);
+INSERT INTO Comment VALUES ('tetdhrfyykilieqerwteyurtiyoufdstouhiusrurhjjrirxuirytyyruiertfweudfesayygdfyeafgheuyufuyuesyeuueugbhtygthghhghjgguughhuuvyhcjnnnai', GETDATE(), 2, 2);
 go
 select * from Comment
 go
---INSERT INTO Cart VALUES (1, 1000, 1, 2);
---go
---select * from Cart
---go
---INSERT INTO Orders VALUES ('User', '0987654321', N'Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội', 'a', GETDATE(), 1, 2);
---go
---select * from Orders
---go
---DELETE FROM Cart;
---INSERT INTO OrderDetail VALUES (N'The order has been placed', 1);
---go
---select * from OrderDetail
---go

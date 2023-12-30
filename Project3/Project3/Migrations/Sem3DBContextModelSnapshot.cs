@@ -144,6 +144,10 @@ namespace Project3.Migrations
                         .HasColumnType("int")
                         .HasColumnName("AccountId");
 
+                    b.Property<DateTime?>("CommentDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CommentDate");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Content");
@@ -219,9 +223,23 @@ namespace Project3.Migrations
                         .HasColumnType("int")
                         .HasColumnName("OrdersId");
 
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("ProductId");
+
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int")
+                        .HasColumnName("Quantity");
+
+                    b.Property<double?>("TotalPrice")
+                        .HasColumnType("float")
+                        .HasColumnName("TotalPrice");
+
                     b.HasKey("OrderDetailId");
 
                     b.HasIndex("OrdersId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderDetail");
                 });
@@ -247,14 +265,6 @@ namespace Project3.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("OrderDate");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int")
-                        .HasColumnName("ProductId");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int")
-                        .HasColumnName("Quantity");
-
                     b.Property<string>("ReceiverAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -271,15 +281,9 @@ namespace Project3.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasColumnName("ReceiverPhone");
 
-                    b.Property<double?>("TotalPrice")
-                        .HasColumnType("float")
-                        .HasColumnName("TotalPrice");
-
                     b.HasKey("OrdersId");
 
                     b.HasIndex("AccountId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Orders");
                 });
@@ -363,7 +367,13 @@ namespace Project3.Migrations
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrdersId");
 
+                    b.HasOne("Project3.Models.Product", "Product")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("ProductId");
+
                     b.Navigation("Orders");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Project3.Models.Orders", b =>
@@ -372,13 +382,7 @@ namespace Project3.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("AccountId");
 
-                    b.HasOne("Project3.Models.Product", "Product")
-                        .WithMany("Orders")
-                        .HasForeignKey("ProductId");
-
                     b.Navigation("Account");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Project3.Models.Product", b =>
@@ -418,7 +422,7 @@ namespace Project3.Migrations
                 {
                     b.Navigation("Carts");
 
-                    b.Navigation("Orders");
+                    b.Navigation("OrderDetail");
                 });
 #pragma warning restore 612, 618
         }

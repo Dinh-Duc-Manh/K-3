@@ -33,29 +33,13 @@ namespace Project3.Models
         [Display(Name = "Note")]
         public string? Note { get; set; }
 
-        [Column("Quantity")]
-        [Display(Name = "Quantity")]
-        public int? Quantity { get; set; }
-
-        [Column("TotalPrice")]
-        [Display(Name = "Total Price")]
-        [DisplayFormat(DataFormatString = "{0:#,0 $}")]
-        public double? TotalPrice { get; set; }
-
         [Column("OrderDate")]
         [Display(Name = "Order date")]
         public DateTime? OrderDate { get; set; }
 
-        [Column("ProductId")]
-        [Display(Name = "Product")]
-        public int? ProductId { get; set; }
-
         [Column("AccountId")]
         [Display(Name = "Account")]
         public int? AccountId { get; set; }
-
-        [Display(Name = "Product")]
-        public Product? Product { get; set; }
 
         [Display(Name = "Account")]
         public Account? Account { get; set; }

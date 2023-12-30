@@ -47,7 +47,7 @@ namespace Project3.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["ne_Image"] = news.NewsImage;
             ViewData["ne_title"] = news.Title;
             ViewData["ne_LongContent"] = news.LongContent;
             ViewData["ne_id"] = id;
@@ -56,7 +56,7 @@ namespace Project3.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CommentId,Content,NewsId,AccountId")] Comment comment, int? NewsId)
+        public async Task<IActionResult> Create([Bind("CommentId,Content,CommentDate,NewsId,AccountId")] Comment comment, int? NewsId)
         {
             if (ModelState.IsValid)
             {
