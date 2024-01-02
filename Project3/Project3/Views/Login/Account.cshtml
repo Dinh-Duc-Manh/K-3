@@ -16,7 +16,11 @@
             <div class="col-4">
                 <input name="Image" class="form-control mb-2" type="hidden" value="@Model.Avatar" />
                 <img src="~/Images/@Model.Avatar" width="100%" alt="#">
-                <input asp-for="Avatar" type="file" class="form-control mb-2" />
+                @if (Model.AccountType == "user")
+                {
+                    <input asp-for="Avatar" type="file" class="form-control mb-2" />
+                }
+                <input asp-for="Avatar" type="hidden" class="form-control mb-2" />
             </div>
             <div class="col-8">
                 <div class="row my-5">

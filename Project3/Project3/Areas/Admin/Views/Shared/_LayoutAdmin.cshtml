@@ -23,7 +23,7 @@
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <div class="preloader flex-column justify-content-center align-items-center">
-            <a asp-area="" asp-action="Index" asp-controller="Home" class="brand-link">
+            <a asp-area="" asp-action="Index" asp-controller="Home">
                 <img class="animation__wobble" src="~/StyleAdmin/dist/img/AdminLTELogo.png" alt="#" height="60" width="60">
             </a>
         </div>
@@ -53,16 +53,18 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="~/Images/@HttpContextAccessor.HttpContext.Session.GetString("LoginAvatar")" class="img-circle elevation-2" alt="#">
+                        <a asp-area="Admin" asp-action="Index" asp-controller="HomeAdmin">
+                            <img src="~/Images/@HttpContextAccessor.HttpContext.Session.GetString("LoginAvatar")" class="img-circle elevation-2" alt="#">
+                        </a>
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">@HttpContextAccessor.HttpContext.Session.GetString("LoginName")</a>
+                        <a asp-area="Admin" asp-action="Index" asp-controller="HomeAdmin" class="d-block">@HttpContextAccessor.HttpContext.Session.GetString("LoginName")</a>
                         <a asp-area="" asp-action="Logout" asp-controller="Login">Logout</a>
                     </div>
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-header">Manage Project3</li>
+                        <li class="nav-header">Manage Providence</li>
                         <li class="nav-item">
                             <a asp-area="Admin" asp-controller="CategoriesAdmin" asp-action="Index" class="nav-link">
                                 <i class="fa-solid fa-layer-group"></i>

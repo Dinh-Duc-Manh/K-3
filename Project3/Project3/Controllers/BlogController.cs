@@ -49,6 +49,7 @@ namespace Project3.Controllers
             }
             ViewData["ne_Image"] = news.NewsImage;
             ViewData["ne_title"] = news.Title;
+            ViewData["ne_ShortContent"] = news.ShortContent;
             ViewData["ne_LongContent"] = news.LongContent;
             ViewData["ne_id"] = id;
             return View(comm);
