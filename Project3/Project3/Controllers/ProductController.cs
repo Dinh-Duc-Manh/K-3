@@ -22,41 +22,56 @@ namespace Project3.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(string? name, int? page)
+        public async Task<IActionResult> Index(string? id, string? name, int? page)
         {
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
 
-            if (!String.IsNullOrEmpty(name))
+            if (id == "All")
             {
-                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            }
-             return View(product);
-        }
-        public async Task<IActionResult> Medical(string? name, int? page)
-        {
-            int pageLimit = 8;
-            int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            if (!String.IsNullOrEmpty(name))
-            {
-                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            }
-            return View(product);
-        }
-        public async Task<IActionResult> Science(string? name, int? page)
-        {
-            int pageLimit = 8;
-            int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Science").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            if (!String.IsNullOrEmpty(name))
-            {
-                product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-            }
-            return View(product);
-        }
 
+                var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+
+                TempData["active"] = "active";
+                TempData["active1"] = "";
+                TempData["active2"] = "";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                }
+                return View(product);
+            }
+            else if (id == "Medical")
+            {
+                var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                TempData["active"] = "";
+                TempData["active1"] = "active";
+                TempData["active2"] = "";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                    TempData["active"] = "active";
+                    TempData["active1"] = "";
+                }
+                return View(product);
+            }
+            else if (id == "Science")
+            {
+                var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Science").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                TempData["active"] = "";
+                TempData["active1"] = "";
+                TempData["active2"] = "active";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                    TempData["active"] = "active";
+                    TempData["active2"] = "";
+                }
+                return View(product);
+            }
+
+            return View();
+        }
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -77,6 +92,23 @@ namespace Project3.Controllers
             {
                 return NotFound();
             }
+            Int32 a = 1;
+            var pro = _context.Products.Include(c => c.Category).Where(c => c.Category == product.Category);
+            List<Product> list = new List<Product>();
+            foreach (var p in pro)
+            {
+                if (product.ProductId != p.ProductId)
+                {
+                    list.Add(new Product() { ProductId = p.ProductId, ProductName = p.ProductName, ProductImage = p.ProductImage, ProductStatus = p.ProductStatus, Price = p.Price });
+                    a++;
+                }
+                if(a >= 5)
+                {
+                    break;
+                }
+            }
+
+            ViewData["pro"] = list;
 
             ViewData["pro_id"] = id;
             ViewData["price"] = product.Price;

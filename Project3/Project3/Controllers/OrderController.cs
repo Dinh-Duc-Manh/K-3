@@ -1,4 +1,7 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +34,9 @@ namespace Project3.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders.Include(o => o.Account).FirstOrDefaultAsync(m => m.OrdersId == id);
+            var orders = await _context.Orders
+                .Include(o => o.Account)
+                .FirstOrDefaultAsync(m => m.OrdersId == id);
             if (orders == null)
             {
                 return NotFound();
@@ -41,13 +46,12 @@ namespace Project3.Controllers
         }
 
         // GET: Order/Create
-        public IActionResult Create(Cart cart)
+        public IActionResult Create()
         {
-
-            var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product);
+            var carts = _context.Carts.Include(c => c.Account).Include(p => p.Product);
             int c = 0;
             Int32 a = 0;
-            foreach (var item in sem3DBContext)
+            foreach (var item in carts)
             {
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
                 {
@@ -59,11 +63,17 @@ namespace Project3.Controllers
 
                 }
             }
-            //List<Cart> list = new List<Cart>();
-            //list.Add(new Cart() { Quantity = sem3DBContext.Quantity });
-            //ViewData["cart"] = list;
+            List<Cart> list = new List<Cart>();
+            foreach (var item in carts)
+            {
+                if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
+                {
+                    list.Add(new Cart() { Product = item.Product, TotalPrice = item.TotalPrice, Quantity = item.Quantity });
+
+                }
+            }
+            ViewData["cart"] = list;
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Description");
             return View();
         }
 
@@ -74,37 +84,33 @@ namespace Project3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,AccountId")] Orders orders, [Bind("OrderDetailId,Quantity,TotalPrice,OrderDetailStatus,ProductId,OrdersId")] OrderDetail orderDetail)
         {
-            //var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product).Where(c => c.AccountId == HttpContext.Session.GetInt32("LoginId"));
-
             if (ModelState.IsValid)
             {
-                //foreach (var item in sem3DBContext)
-                //{
+            
                 orders.OrderDate = DateTime.Now;
-                //orders.ProductId = item.ProductId;
                 orders.AccountId = HttpContext.Session.GetInt32("LoginId");
-                //orders.Quantity = item.Quantity;
-                //orders.TotalPrice= item.TotalPrice;
-                _context.Add(orders);
+                _context.Orders.Add(orders);
 
                 await _context.SaveChangesAsync();
                 //}
-                var a = true;
+                var check = true;
                 do
                 {
-                    var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product).Where(c => c.AccountId == HttpContext.Session.GetInt32("LoginId"));
+                    var pro = _context.Carts.Include(c => c.Account).Include(p => p.Product).Where(c => c.AccountId == HttpContext.Session.GetInt32("LoginId"));
 
-                    if (sem3DBContext != null)
+                    if (pro != null)
                     {
-                        foreach (var item in sem3DBContext)
+                        foreach (var item in pro)
                         {
-
-                            orderDetail.OrderDetailStatus = item.Product.ProductName;
+                            orderDetail.Quantity = item.Quantity;
+                            orderDetail.TotalPrice = item.TotalPrice;
+                            orderDetail.OrderDetailStatus = "Confirming";
+                            orderDetail.ProductId = item.ProductId;
                             orderDetail.OrdersId = orders.OrdersId;
                             _context.OrderDetails.Add(orderDetail);
                             await _context.SaveChangesAsync();
 
-                            _context.Carts.Remove(_context.Carts.Find(item.CartId));
+                            _context.Remove(_context.Carts.Find(item.CartId));
                             //_context.SaveChanges();
                             await _context.SaveChangesAsync();
                             break;
@@ -112,12 +118,38 @@ namespace Project3.Controllers
                     }
                     else
                     {
-                        a = false;
+                        check = false;
                     }
 
-                } while (a == true);
+                } while (check == true);
                 return RedirectToAction(nameof(Index));
             }
+
+            var carts = _context.Carts.Include(c => c.Account).Include(p => p.Product);
+            int c = 0;
+            Int32 a = 0;
+            foreach (var item in carts)
+            {
+                if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
+                {
+
+                    c++;
+                    ViewData["Number_Pro"] = c;
+                    a += (Int32)item.TotalPrice;
+                    ViewData["Total_Cart"] = a.ToString("#,##0 $");
+
+                }
+            }
+            List<Cart> list = new List<Cart>();
+            foreach (var item in carts)
+            {
+                if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
+                {
+                    list.Add(new Cart() { Product = item.Product, TotalPrice = item.TotalPrice, Quantity = item.Quantity });
+
+                }
+            }
+            ViewData["cart"] = list;
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", orders.AccountId);
             return View(orders);
         }
@@ -144,7 +176,7 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,AccountId")] Orders orders)
+        public async Task<IActionResult> Edit(int id, [Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,AccountId")] Orders orders)
         {
             if (id != orders.OrdersId)
             {
@@ -183,7 +215,9 @@ namespace Project3.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders.Include(o => o.Account).FirstOrDefaultAsync(o => o.OrdersId == id);
+            var orders = await _context.Orders
+                .Include(o => o.Account)
+                .FirstOrDefaultAsync(m => m.OrdersId == id);
             if (orders == null)
             {
                 return NotFound();
@@ -195,7 +229,7 @@ namespace Project3.Controllers
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Orders == null)
             {
@@ -211,9 +245,9 @@ namespace Project3.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrdersExists(int? id)
+        private bool OrdersExists(int id)
         {
-            return (_context.Orders?.Any(o => o.OrdersId == id)).GetValueOrDefault();
+            return (_context.Orders?.Any(e => e.OrdersId == id)).GetValueOrDefault();
         }
     }
 }

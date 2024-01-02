@@ -161,6 +161,7 @@ namespace Project3.Controllers
 
                     _context.Update(account);
                     await _context.SaveChangesAsync();
+                    HttpContext.Session.SetString("LoginName", account.FullName);
                     TempData["Message"] = "Product update successful";
                 }
                 catch (DbUpdateConcurrencyException)

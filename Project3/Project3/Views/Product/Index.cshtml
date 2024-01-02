@@ -21,9 +21,9 @@
            
             <div class="col-md-6 ">
                 <ul class="product-category">
-                    <li><a asp-action="Index" class="active">All</a></li>
-                    <li><a asp-action="Medical">Medical</a></li>
-                    <li><a asp-action="Science">Science</a></li>
+                    <li><a asp-route-id="All" asp-action="Index" class="@TempData["active"]">All</a></li>
+                    <li><a asp-route-id="Medical" asp-action="Index" class="@TempData["active1"]">Medical</a></li>
+                    <li><a asp-route-id="Science" asp-action="Index" class="@TempData["active2"]">Science</a></li>
                 </ul>
             </div>
             <div class="col-md-6" style="margin-bottom:20px !important">
