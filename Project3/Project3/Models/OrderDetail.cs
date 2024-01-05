@@ -20,10 +20,6 @@ namespace Project3.Models
         [DisplayFormat(DataFormatString = "{0:#,0 $}")]
         public double? TotalPrice { get; set; }
 
-        [Column("OrderDetailStatus")]
-        [Display(Name = "Order Detail Status")]
-        public string? OrderDetailStatus { get; set; }
-
         [Column("ProductId")]
         [Display(Name = "Product")]
         public int? ProductId { get; set; }

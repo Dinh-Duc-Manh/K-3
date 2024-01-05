@@ -66,6 +66,7 @@ CREATE TABLE Orders
 	ReceiverAddress nvarchar(200),
 	Note ntext,
 	OrderDate datetime DEFAULT GETDATE(),
+	OrderStatus varchar(200),
 	AccountId int foreign key references Account(AccountId)
 )
 go
@@ -74,7 +75,6 @@ CREATE TABLE OrderDetail
 	OrderDetailId int PRIMARY KEY IDENTITY,
 	Quantity int,
 	TotalPrice Float,
-	OrderDetailStatus varchar(200),
 	ProductId int foreign key references Product(ProductId),
 	OrderId int foreign key references Orders(OrdersId)
 )

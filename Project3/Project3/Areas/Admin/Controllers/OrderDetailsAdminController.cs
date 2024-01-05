@@ -1,110 +1,38 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Project3.Controllers;
 using Project3.Data;
 using Project3.Models;
 
 namespace Project3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class OrderDetailsAdminController : Base1Controller
+    public class OrderDetailsAdminController : Controller
     {
-        private readonly Sem3DBContext _contextOD;
+        private readonly Sem3DBContext _context;
 
         public OrderDetailsAdminController(Sem3DBContext context)
         {
-            _contextOD = context;
+            _context = context;
         }
 
         // GET: Admin/OrderDetailsAdmin
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
-            var sem3DBContext = _contextOD.OrderDetails.Include(o => o.Orders);
-            return View(await sem3DBContext.ToListAsync());
+            var Detail_Orders = _context.OrderDetails.Include(o => o.Orders).Include(o => o.Product).Where(o => o.OrdersId == id);
+            var name = await _context.Orders.FirstOrDefaultAsync(a => a.OrdersId == id);
+            ViewData["Name"] = name.ReceiverName;
+            return View(await Detail_Orders.ToListAsync());
         }
 
-        // GET: Admin/OrderDetailsAdmin/Details/5
-        public async Task<IActionResult> Details(int? id)
+      
+        private bool OrderDetailExists(int id)
         {
-            if (id == null || _contextOD.OrderDetails == null)
-            {
-                return NotFound();
-            }
-
-            var orderDetail = await _contextOD.OrderDetails.Include(o => o.Orders).FirstOrDefaultAsync(o => o.OrderDetailId == id);
-
-            if (orderDetail == null)
-            {
-                return NotFound();
-            }
-            return View(orderDetail);
-        }
-
-        // GET: Admin/OrderDetailsAdmin/Create
-
-        // GET: Admin/OrderDetailsAdmin/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _contextOD.OrderDetails == null)
-            {
-                return NotFound();
-            }
-
-            var orderDetail = await _contextOD.OrderDetails.FindAsync(id);
-
-            if (orderDetail == null)
-            {
-                return NotFound();
-            }
-
-            ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
-            return View(orderDetail);
-        }
-
-        // POST: Admin/OrderDetailsAdmin/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("OrderDetailId,OrderDetailStatus,OrdersId")] OrderDetail orderDetail)
-        {
-            if (id != orderDetail.OrderDetailId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _contextOD.Update(orderDetail);
-                    await _contextOD.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrderDetailExists(orderDetail.OrderDetailId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["OrdersId"] = new SelectList(_contextOD.Orders, "OrdersId", "OrdersId", orderDetail.OrdersId);
-            return View(orderDetail);
-        }
-
-        // GET: Admin/OrderDetailsAdmin/Delete/5
-
-        private bool OrderDetailExists(int? id)
-        {
-          return (_contextOD.OrderDetails?.Any(o => o.OrderDetailId == id)).GetValueOrDefault();
+          return (_context.OrderDetails?.Any(e => e.OrderDetailId == id)).GetValueOrDefault();
         }
     }
 }

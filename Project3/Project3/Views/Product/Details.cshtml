@@ -1,8 +1,9 @@
 ﻿@model Project3.ViewModels.Cart_Pro
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Product Details";
 }
 
 <div class="hero-wrap hero-bread" style="background-image: url('/StyleUser/images/pro1.jpg');">
@@ -15,7 +16,6 @@
         </div>
     </div>
 </div>
-
 <form asp-action="Create" asp-controller="Cart">
     <section class="ftco-section">
         <div class="container">
@@ -59,7 +59,6 @@
                     @if (Model.MPro.ProductStatus == "In stock")
                     {
                         <p><input type="submit" value="Add to Cart" class="btn btn-black py-3 px-5" /></p>
-
                     }
                     else
                     {
@@ -70,7 +69,6 @@
         </div>
     </section>
 </form>
-
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
@@ -106,7 +104,6 @@
                                     <a asp-action="Details" asp-route-id="@item.ProductId" class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                         <span><i class="ion-ios-menu"></i></span>
                                     </a>
-
                                     @if (item.ProductStatus == "In stock")
                                     {
                                         <a asp-action="Details" asp-route-id="@item.ProductId" class="buy-now d-flex justify-content-center align-items-center ml-2">
@@ -118,19 +115,16 @@
                                         <a class="buy-now d-flex justify-content-center align-items-center ml-2 " style=" background-color:red">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>
-
                                     }
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             }
         </div>
     </div>
 </section>
-
 <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">

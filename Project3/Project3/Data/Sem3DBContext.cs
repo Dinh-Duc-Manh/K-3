@@ -45,7 +45,7 @@ namespace Project3.Data
                     FullName = "Admin",
                     Email = "admin@gmail.com",
                     Password = "123456",
-                    Phone = "020032003",
+                    Phone = "0123456789",
                     Address = "Tòa Nhà HTC-250 Hoàng Quốc Việt-Cổ Nhuế-Cầu Giấy-Hà Nội",
                     Avatar = "acc1.jpg",
                     AccountStatus = "In force",
@@ -144,7 +144,7 @@ namespace Project3.Data
                     ProductName = "Gas-X Relief Tablets",
                     Price = 1000.0,
                     Description = "Brand\tGas-X\r\nSpecial Feature\tfast_acting\r\nItem Weight\t22.68 Grams\r\nItem Dimensions LxWxH\t1.22 x 2.75 x 4.53 inches\r\nProduct Benefits\tProvides bloating and gas relief",
-                    ProductImage = "Gas-XReliefTablets.jpg",
+                    ProductImage = "GasXReliefTablets.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 1
                 },
@@ -154,7 +154,7 @@ namespace Project3.Data
                     ProductName = "Advil Liqui-Gels",
                     Price = 2000.0,
                     Description = "Brand\tAdvil\r\nSpecial Feature The medicine in Advil Liqui-Gels(Ibuprofen) is already dissolved in a soft gelatin capsule and works quickly to relieve pain at the site of inflammation.The medicine in Advil Liqui-Gels(Ibuprofen) is already dissolved in a soft gelatin capsule and works quickly to relieve pain at the site of inflammation.\r\nItem Weight 4.64 Ounces\r\nItem Dimensions LxWxH   6 x 5 x 4 inches\r\nProduct Benefits Headache, Menstrual Pain, Joint Pain Relief, Backache, Fever",
-                    ProductImage = "AdvilLiqui-Gels.jpg",
+                    ProductImage = "AdvilLiquiGels.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 2
                 },
@@ -194,7 +194,7 @@ namespace Project3.Data
                     ProductName = "AmScope 120X-1200X 52-pcs",
                     Price = 4000.0,
                     Description = "Light Source Type\tLED\r\nModel Name  M30 ABS KT2 W\r\nMaterial ABS, Plastic, Metal\r\nColor White\r\nProduct Dimensions  14.57 L x 5.12 W x 15.75H\r\nReal Angle of View  90 Degrees\r\nMagnification Maximum   1200 x\r\nItem Weight 3.7 Pounds\r\n            Brand   AmScope\r\nObjective Lens Description  Achromatic",
-                    ProductImage = "AmScope120X-1200X.jpg",
+                    ProductImage = "AmScope_120X_1200X.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 4
                 },
@@ -204,7 +204,7 @@ namespace Project3.Data
                     ProductName = "AmScope M150C-I 40X-1000X",
                     Price = 4000.0,
                     Description = "Light Source Type\tLED\r\nModel Name  M150C - I 40X - 1000X\r\nMaterial    Glass\r\nColor   Silver, White, Black\r\nProduct Dimensions  10L x 7W x 15H\r\nReal Angle of View  90 Degrees\r\nMagnification Maximum   1000 x\r\nVoltage 110 Volts\r\nBrand   AmScope\r\nObjective Lens Description  Achromatic",
-                    ProductImage = "AmScope_M150C-I.jpg",
+                    ProductImage = "AmScope_M150CI.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 4
                 },
@@ -224,7 +224,7 @@ namespace Project3.Data
                     ProductName = "Portable-Small Blood-Pressure Monitors",
                     Price = 5000.0,
                     Description = "Brand\tangel wish\r\nIncluded Components Home Blood Pressure Monitor x 1; Adjustable Arm Cuff x 1, Users Manual x 1\r\nPower Source    Battery Powered/ Charging Powered\r\nUse for Arm\r\nDisplay Type    LCD\r\nSize    Regular\r\nAge Range(Description) Adult\r\nModel Name  Blood Pressure Monitor\r\nBand Size   12.6 inch\r\nMaterial Feature    Durable",
-                    ProductImage = "Portable-Small.jpg",
+                    ProductImage = "PortableSmall.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 5
                 },
@@ -244,7 +244,7 @@ namespace Project3.Data
                     ProductName = "POLAR Unite Waterproof Fitness Watch & H9 Heart Rate Monitor Bundle",
                     Price = 6000.0,
                     Description = "Brand\tPOLAR\r\nModel Name  Unite\r\nColor   White\r\nScreen Size 1.2 Inches\r\nSpecial Feature Bluetooth\r\nAge Range(Description) Kid\r\nDisplay Type    LED\r\nBand Color  White\r\nBattery Life    4 days\r\nConnectivity Technology Bluetooth",
-                    ProductImage = "POLAR_Unite.jpg",
+                    ProductImage = "POLARUnite.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 6
                 },
@@ -254,7 +254,7 @@ namespace Project3.Data
                     ProductName = "Zacurate 500C Elite",
                     Price = 7000.0,
                     Description = "Brand   Zacurate\r\nColor   Mystic Black\r\nNumber of Batteries 2 AAA batteries required. (included)\r\nBattery Life    30 Hours\r\nAre Batteries Included  Yes",
-                    ProductImage = "Zacurate500CElite.jpg",
+                    ProductImage = "Zacurate_500CElite.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 7
                 },
@@ -274,7 +274,7 @@ namespace Project3.Data
                     ProductName = "Armedica AM-300 HI-LO",
                     Price = 8000.0,
                     Description = "Brand\tArmedica\r\nShape   Rectangular\r\nProduct Care Instructions   Wipe with Dry Cloth\r\nMaterial    Steel, Welded",
-                    ProductImage = "Armedica_AM-300_HI-LO.jpg",
+                    ProductImage = "ArmedicaAM_300HILO.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 8
                 },
@@ -284,7 +284,7 @@ namespace Project3.Data
                     ProductName = "MedSurface Med Surface",
                     Price = 8000.0,
                     Description = "Brand   MedSurface\r\nShape   Rectangular\r\nProduct Care Instructions   Wipe with Dry Cloth",
-                    ProductImage = "MedSurface_Med_Surface.jpg",
+                    ProductImage = "MedSurfaceMedSurface.jpg",
                     ProductStatus = "In stock",
                     CategoryId = 8
                 });

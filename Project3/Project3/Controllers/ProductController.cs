@@ -27,21 +27,8 @@ namespace Project3.Controllers
             int pageLimit = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
 
-            if (id == "All")
-            {
-
-                var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-
-                TempData["active"] = "active";
-                TempData["active1"] = "";
-                TempData["active2"] = "";
-                if (!String.IsNullOrEmpty(name))
-                {
-                    product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
-                }
-                return View(product);
-            }
-            else if (id == "Medical")
+           
+            if (id == "Medical")
             {
                 var product = await _context.Products.Include(c => c.Category).Where(c => c.Category.CategoryType == "Medical").OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
                 TempData["active"] = "";
@@ -69,8 +56,20 @@ namespace Project3.Controllers
                 }
                 return View(product);
             }
+            else
+            {
 
-            return View();
+                var product = await _context.Products.Include(c => c.Category).OrderByDescending(p => p.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+
+                TempData["active"] = "active";
+                TempData["active1"] = "";
+                TempData["active2"] = "";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    product = await _context.Products.Where(a => a.ProductName.Contains(name)).OrderBy(a => a.ProductId).ToPagedListAsync(pageNumber, pageLimit);
+                }
+                return View(product);
+            }
         }
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)

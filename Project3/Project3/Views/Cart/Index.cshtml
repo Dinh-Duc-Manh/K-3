@@ -69,20 +69,28 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-            <div class="cart-total mb-3">
-                <h3>Cart Totals</h3>
-                <p class="d-flex">
-                    <span>Number Products</span>
-                    <span>@ViewData["Number_Pro"]</span>
-                </p>
-                <hr>
-                <p class="d-flex total-price">
-                    <span>Total</span>
-                    <span>@ViewData["Total_Cart"]</span>
-                </p>
+        <div class="row">
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <p><a asp-action="Index" asp-controller="Order" class="btn btn-info py-3 px-4">Your Orders</a></p>
             </div>
-            <p><a asp-action="Create" asp-controller="Order" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <p></p>
+            </div>
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <p class="d-flex">
+                        <span>Number Products</span>
+                        <span>@ViewData["Number_Pro"]</span>
+                    </p>
+                    <hr>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span>@ViewData["Total_Cart"]</span>
+                    </p>
+                </div>
+                <p><a asp-action="Create" asp-controller="Order" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+            </div>
         </div>
     </div>
 </section>

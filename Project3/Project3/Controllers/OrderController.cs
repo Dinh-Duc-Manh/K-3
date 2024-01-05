@@ -26,24 +26,7 @@ namespace Project3.Controllers
             return View(await sem3DBContext.ToListAsync());
         }
 
-        // GET: Order/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Orders == null)
-            {
-                return NotFound();
-            }
-
-            var orders = await _context.Orders
-                .Include(o => o.Account)
-                .FirstOrDefaultAsync(m => m.OrdersId == id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
-
-            return View(orders);
-        }
+       
 
         // GET: Order/Create
         public IActionResult Create()
@@ -51,6 +34,7 @@ namespace Project3.Controllers
             var carts = _context.Carts.Include(c => c.Account).Include(p => p.Product);
             int c = 0;
             Int32 a = 0;
+            List<Cart> list = new List<Cart>();
             foreach (var item in carts)
             {
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
@@ -62,10 +46,7 @@ namespace Project3.Controllers
                     ViewData["Total_Cart"] = a.ToString("#,##0 $");
 
                 }
-            }
-            List<Cart> list = new List<Cart>();
-            foreach (var item in carts)
-            {
+
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
                 {
                     list.Add(new Cart() { Product = item.Product, TotalPrice = item.TotalPrice, Quantity = item.Quantity });
@@ -82,52 +63,51 @@ namespace Project3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,AccountId")] Orders orders, [Bind("OrderDetailId,Quantity,TotalPrice,OrderDetailStatus,ProductId,OrdersId")] OrderDetail orderDetail)
+        public async Task<IActionResult> Create([Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,OrderStatus,AccountId")] Orders orders)
         {
             if (ModelState.IsValid)
             {
-            
                 orders.OrderDate = DateTime.Now;
+                orders.OrderStatus = "Confirming";
                 orders.AccountId = HttpContext.Session.GetInt32("LoginId");
                 _context.Orders.Add(orders);
-
                 await _context.SaveChangesAsync();
-                //}
-                var check = true;
-                do
-                {
+                //var check = true;
+                //do
+                //{
                     var pro = _context.Carts.Include(c => c.Account).Include(p => p.Product).Where(c => c.AccountId == HttpContext.Session.GetInt32("LoginId"));
 
-                    if (pro != null)
-                    {
+                    //if (pro != null)
+                    //{
                         foreach (var item in pro)
                         {
+                    OrderDetail orderDetail = new OrderDetail();
                             orderDetail.Quantity = item.Quantity;
                             orderDetail.TotalPrice = item.TotalPrice;
-                            orderDetail.OrderDetailStatus = "Confirming";
                             orderDetail.ProductId = item.ProductId;
                             orderDetail.OrdersId = orders.OrdersId;
                             _context.OrderDetails.Add(orderDetail);
-                            await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
 
                             _context.Remove(_context.Carts.Find(item.CartId));
-                            //_context.SaveChanges();
-                            await _context.SaveChangesAsync();
-                            break;
+                    //_context.SaveChanges();
+                    await _context.SaveChangesAsync();
+                            //break;
                         }
-                    }
-                    else
-                    {
-                        check = false;
-                    }
+                //}
+                //    else
+                //    {
+                //        check = false;
+                //    }
 
-                } while (check == true);
+                //} while (check == true);
                 return RedirectToAction(nameof(Index));
             }
 
             var carts = _context.Carts.Include(c => c.Account).Include(p => p.Product);
             int c = 0;
             Int32 a = 0;
+            List<Cart> list = new List<Cart>();
             foreach (var item in carts)
             {
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
@@ -139,10 +119,7 @@ namespace Project3.Controllers
                     ViewData["Total_Cart"] = a.ToString("#,##0 $");
 
                 }
-            }
-            List<Cart> list = new List<Cart>();
-            foreach (var item in carts)
-            {
+
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
                 {
                     list.Add(new Cart() { Product = item.Product, TotalPrice = item.TotalPrice, Quantity = item.Quantity });
@@ -152,97 +129,6 @@ namespace Project3.Controllers
             ViewData["cart"] = list;
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", orders.AccountId);
             return View(orders);
-        }
-
-        // GET: Order/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Orders == null)
-            {
-                return NotFound();
-            }
-
-            var orders = await _context.Orders.FindAsync(id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", orders.AccountId);
-            return View(orders);
-        }
-
-        // POST: Order/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrdersId,ReceiverName,ReceiverPhone,ReceiverAddress,Note,OrderDate,AccountId")] Orders orders)
-        {
-            if (id != orders.OrdersId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(orders);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrdersExists(orders.OrdersId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "Address", orders.AccountId);
-            return View(orders);
-        }
-
-        // GET: Order/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Orders == null)
-            {
-                return NotFound();
-            }
-
-            var orders = await _context.Orders
-                .Include(o => o.Account)
-                .FirstOrDefaultAsync(m => m.OrdersId == id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
-
-            return View(orders);
-        }
-
-        // POST: Order/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Orders == null)
-            {
-                return Problem("Entity set 'Sem3DBContext.Orders'  is null.");
-            }
-            var orders = await _context.Orders.FindAsync(id);
-            if (orders != null)
-            {
-                _context.Orders.Remove(orders);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool OrdersExists(int id)

@@ -18,9 +18,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-
-
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -37,7 +36,6 @@
                                     <form asp-action="Register" enctype="multipart/form-data">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <p>Please register to your account</p>
-
                                         <div class="form-group">
                                             <label asp-for="FullName" class="control-label"></label>
                                             <input asp-for="FullName" class="form-control" />
@@ -70,11 +68,9 @@
                                         </div>
                                         <input asp-for="AccountStatus" type="hidden" value="In force" class="form-control" />
                                         <input asp-for="AccountType" type="hidden" value="user" class="form-control" />
-
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"> Register </button>
                                         </div>
-
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <a asp-controller="Login" asp-action="Index"> I already have an account! </a>
                                         </div>
@@ -103,5 +99,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-

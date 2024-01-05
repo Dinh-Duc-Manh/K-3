@@ -37,6 +37,10 @@ namespace Project3.Models
         [Display(Name = "Order date")]
         public DateTime? OrderDate { get; set; }
 
+        [Column("OrderStatus")]
+        [Display(Name = "Order Status")]
+        public string? OrderStatus { get; set; }
+
         [Column("AccountId")]
         [Display(Name = "Account")]
         public int? AccountId { get; set; }
