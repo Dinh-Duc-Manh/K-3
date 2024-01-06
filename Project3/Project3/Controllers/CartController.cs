@@ -23,6 +23,7 @@ namespace Project3.Controllers
             var sem3DBContext = _context.Carts.Include(c => c.Account).Include(p => p.Product);
             int c = 0;
             Int32 a = 0;
+
             foreach (var item in sem3DBContext)
             {
                 if (item.AccountId == HttpContext.Session.GetInt32("LoginId"))
@@ -32,11 +33,14 @@ namespace Project3.Controllers
                     ViewData["Number_Pro"] = c;
                     a += (Int32)item.TotalPrice;
                     ViewData["Total_Cart"] = a.ToString("#,##0 $");
-
-
+                    TempData["cart"] = "";
                 }
             }
-
+            var cart_null = _context.Carts.Where(c => c.AccountId == HttpContext.Session.GetInt32("LoginId"));
+            if (cart_null == null)
+            {
+                TempData["cart"] = "123";
+            }
             //var sem3DBContext = _context.Carts.Include(a => a.Account).Include(p => p.Product);
             return View(await sem3DBContext.ToListAsync());
         }

@@ -23,6 +23,7 @@ namespace Project3.Controllers
         public async Task<IActionResult> Index()
         {
             var sem3DBContext = _context.Orders.Include(o => o.Account);
+           
             return View(await sem3DBContext.ToListAsync());
         }
 
